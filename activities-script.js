@@ -1,7 +1,18 @@
 // activities-script.js
 
-// ---------- MOCK DATA: daily activity logs ----------
+// ---------- DATA: daily activity logs ----------
 const activityLogs = [
+        {
+        id: 8,
+        date: "2026-04-11",
+        title: "Meremake website laporan magang",
+        description: "Mengganti website laporan magang dengan tampilan yang lebih menarik, dan sedikit penambahan fitur.",
+        imageUrls: [
+            "pictures/1.png",
+            "pictures/2.png",
+            "pictures/3.png"
+        ]
+    },
     {
         id: 7,
         date: "2026-04-10",
@@ -53,7 +64,7 @@ const activityLogs = [
     },
     {
         id: 2,
-        date: "2026-04-03",
+        date: "2026-04-02",
         title: "Menginstall debian dan membuat DHCP server",
         description: "Gagal saat restart server DHCP server",
         imageUrls: [
