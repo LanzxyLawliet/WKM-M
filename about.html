@@ -1,0 +1,88 @@
+<!-- about.html - About Page (Dark Background) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maulana | About</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary-blue: #3b82f6;
+            --primary-dark: #1e40af;
+            --accent-yellow: #facc15;
+            --accent-gold: #eab308;
+            --bg-dark: #0a0a0f;
+            --surface-dark: #12121a;
+            --surface-elevated: #1e1e2a;
+            --text-light: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border-dim: #2d2d3a;
+        }
+        body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg-dark); color: var(--text-light); line-height: 1.5; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+        header { background: var(--surface-dark); border-bottom: 2px solid var(--accent-yellow); position: sticky; top: 0; z-index: 10; }
+        nav { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 1.2rem 0; gap: 1rem; }
+        .logo a { font-size: 1.7rem; font-weight: 800; background: linear-gradient(135deg, var(--primary-blue), var(--accent-gold)); background-clip: text; -webkit-background-clip: text; color: transparent; text-decoration: none; }
+        .nav-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+        .nav-links a { text-decoration: none; font-weight: 600; color: var(--text-light); transition: 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent-yellow); border-bottom: 2px solid var(--accent-yellow); padding-bottom: 0.25rem; }
+        .page-title { font-size: 2.5rem; font-weight: 800; margin: 2rem 0 0.5rem; border-left: 5px solid var(--accent-yellow); padding-left: 1.2rem; color: var(--text-light); }
+        .section-sub { color: var(--text-muted); margin-bottom: 2rem; font-size: 1.1rem; }
+        .about-grid { display: flex; flex-wrap: wrap; gap: 2.5rem; margin: 2rem 0 3rem; }
+        .about-text { flex: 2; }
+        .about-text p { margin-bottom: 1.2rem; font-size: 1.05rem; color: var(--text-muted); }
+        .skill-badge { display: inline-block; background: var(--surface-elevated); padding: 0.3rem 1rem; border-radius: 30px; font-size: 0.85rem; font-weight: 600; margin: 0.25rem 0.5rem 0.25rem 0; color: var(--primary-blue); border: 1px solid var(--border-dim); }
+        .profile-card { flex: 1; background: var(--surface-dark); border-radius: 2rem; padding: 2rem; text-align: center; border: 1px solid var(--border-dim); box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .profile-icon { font-size: 5rem; color: var(--primary-blue); margin-bottom: 1rem; }
+        footer { text-align: center; padding: 2rem 0; border-top: 1px solid var(--border-dim); margin-top: 2rem; color: var(--text-muted); background: var(--surface-dark); }
+        @media (max-width: 720px) { nav { flex-direction: column; align-items: flex-start; } .page-title { font-size: 2rem; } }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo"><a href="index.html">✦ Maulana Rizki</a></div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html" class="active">About</a>
+                <a href="activities.html">Activities</a>
+                <a href="projects.html">Projects</a>
+            </div>
+        </nav>
+    </div>
+</header>
+<main class="container">
+    <h1 class="page-title">Tentang Saya</h1>
+    <div class="section-sub">Anak magang yang haus belajar, berani mencoba, dan terus berkembang.</div>
+    <div class="about-grid">
+        <div class="about-text">
+            <p>Halo! Saya <strong>Maulana Rizki Ramadhan</strong>, biasa dipanggil Maulana. Saat ini saya sedang menjalani program PKL di perusahaan Fortunet Solusi Indonesia. Saya memiliki ketertarikan besar pada dunia cyber dan networking jaringan.</p>
+            <p>Saya berasal dari SMK Yadika 9, Bntara, Kelas XI TJKT 1. Banyak hal yang saya pelajari adalah otodidak dari rasa penasaran, dan Saya percaya bahwa setiap kegagalan adalah pelajaran, dan setiap proyek adalah kesempatan untuk berkembang.</p>
+            <div style="margin: 1.5rem 0;">
+                <span class="skill-badge">HTML (dasar)</span>
+                <span class="skill-badge">Python (dasar)</span>
+                <span class="skill-badge">Mikrotik (dasar)</span>
+                <span class="skill-badge">Cisco Packettracer(dasar)</span>
+                <span class="skill-badge">Command navigasi linux</span>
+                <span class="skill-badge">Instalasi OS</span>
+            </div>
+            <p><i class="fas fa-envelope" style="color: var(--primary-blue); margin-right: 0.5rem;"></i> maulanarizki3@outlook.com &nbsp;|&nbsp; <i class="fab fa-github"></i> github/LanzxyLawliet</p>
+        </div>
+        <div class="profile-card">
+            <div class="profile-icon"><i class="fas fa-graduation-cap"></i></div>
+            <h3 style="color: var(--text-light);">Maulana Rizki</h3>
+            <p style="margin: 0.5rem 0; color: var(--text-muted);">Siswa TJKT yang sedang PKL</p>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">SMK Yadika 9, Indonesia</p>
+            <hr style="margin: 1rem 0; border-color: var(--border-dim);">
+            <p style="font-size: 0.9rem; color: var(--text-muted);"><i class="fas fa-quote-left"></i> “To go wrong in one's own way is better than to go right in someone else's.”</p>
+        </div>
+    </div>
+</main>
+<footer>
+    <div class="container"><p>© 2025 Maulana Rizki Ramadhan — about page</p></div>
+</footer>
+</body>
+</html>

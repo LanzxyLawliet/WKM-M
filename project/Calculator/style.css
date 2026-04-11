@@ -1,0 +1,71 @@
+body{
+    background-image: url("mathbg.png");
+    background-size: cover;        /* fills the screen */
+    background-position: center;   /* keeps it centered */
+    background-repeat: no-repeat;  /* avoids ugly tiling */
+    height: 100vh;                 /* full screen height */
+    margin: 0;
+    margin: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+}
+
+#calculator{
+    background-color: #55EDF4;
+    max-width: 500px;
+    overflow: hidden;   
+    border: #98F5F9 solid 10px;
+}
+
+#display{
+    width: 95%;
+    padding: 20px;
+    font-size: 3rem;
+    text-align: right;
+    border: none;
+    background-color: #98F5F9;
+    color: white;
+    font-weight: bold;
+}
+    
+#keys{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 20px;
+}
+
+button{
+    width: 100px;
+    height: 100px;
+    border-radius: 30px;
+    border: white solid 1px;
+    background-color: #1dd6ee;
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #a5e6e9;
+}
+button:active{
+    background-color: #97f9fe;
+    transform: scale(0.90);
+}
+
+.operator-btn{
+    background-color: #1984c1;
+}
+
+.operator-btn:hover{
+    background-color: #4da6d1;
+}
+.operator-btn:active{
+    background-color: #8dcdf2;
+    transform: scale(0.90);
+}

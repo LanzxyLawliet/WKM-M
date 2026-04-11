@@ -1,0 +1,276 @@
+<!-- index.html - Landing Page (Dark Background, Blue + Yellow) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maulana Rizki | Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Dark theme with Blue primary + Yellow accent */
+        :root {
+            --primary-blue: #3b82f6;    /* vibrant blue */
+            --primary-dark: #1e40af;    /* deep blue */
+            --accent-yellow: #facc15;   /* bright yellow */
+            --accent-gold: #eab308;     /* deeper yellow */
+            --bg-dark: #0a0a0f;         /* very dark background */
+            --surface-dark: #12121a;    /* card/header background */
+            --surface-elevated: #1e1e2a;
+            --text-light: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border-dim: #2d2d3a;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & navigation */
+        header {
+            background: var(--surface-dark);
+            border-bottom: 2px solid var(--accent-yellow);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(0px);
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+            gap: 1rem;
+        }
+
+        .logo a {
+            font-size: 1.7rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-gold));
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--text-light);
+            transition: color 0.2s ease;
+            font-size: 1rem;
+            padding-bottom: 0.25rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-yellow);
+        }
+
+        .nav-links a.active {
+            color: var(--accent-yellow);
+            border-bottom: 2px solid var(--accent-yellow);
+        }
+
+        /* buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: var(--surface-elevated);
+            border: 1px solid var(--primary-blue);
+            padding: 0.7rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.25s;
+        }
+
+        .btn-primary {
+            background: var(--primary-blue);
+            border-color: var(--primary-blue);
+            color: white;
+            box-shadow: 0 2px 8px rgba(59,130,246,0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(59,130,246,0.4);
+        }
+
+        .btn-outline:hover {
+            background: rgba(59,130,246,0.15);
+            border-color: var(--accent-yellow);
+        }
+
+        /* Hero section */
+        .hero {
+            padding: 4rem 0 2.5rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(to right, var(--primary-blue), var(--accent-gold));
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 640px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Cards grid (landing) */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0 4rem;
+        }
+
+        .card {
+            background: var(--surface-dark);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            transition: all 0.25s ease;
+            box-shadow: 0 5px 14px rgba(0,0,0,0.3);
+            border: 1px solid var(--border-dim);
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(59,130,246,0.2);
+            border-color: var(--accent-yellow);
+        }
+
+        .card-icon {
+            font-size: 2.4rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+            color: var(--text-light);
+        }
+
+        .card p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .card-link {
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--primary-blue);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .card-link:hover {
+            color: var(--accent-yellow);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border-dim);
+            margin-top: 2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            background: var(--surface-dark);
+        }
+
+        @media (max-width: 720px) {
+            nav { flex-direction: column; align-items: flex-start; }
+            .hero h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo"><a href="index.html">✦ Maulana Rizki</a></div>
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="activities.html">Activities</a>
+                <a href="projects.html">Projects</a>
+            </div>
+        </nav>
+    </div>
+</header>
+<main>
+    <div class="container">
+        <div class="hero">
+            <h1>The darker the night.<br>The brighter the stars.</h1>
+            <p>I'm Maulana — anak magang yang sedang belajar.</p>
+            <a href="about.html" class="btn btn-primary"><i class="fas fa-arrow-right"></i> Start here</a>
+        </div>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-user-astronaut"></i></div>
+                <h3>About</h3>
+                <p>Who I am, tentang saya, perjalanan saya, dan pencapaian saya.</p>
+                <a href="about.html" class="card-link">Learn more <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-camera-retro"></i></div>
+                <h3>Activities</h3>
+                <p>Kegiatan yang saya lakukan selama ditempat magang.</p>
+                <a href="activities.html" class="card-link">Explore <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-code-branch"></i></div>
+                <h3>Projects</h3>
+                <p>Proyek-proyek yang telah saya kerjakan selama magang, baik hasil dari waktu magang maupun proyek pribadi.</p>
+                <a href="projects.html" class="card-link">See work <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <div style="text-align: center; margin: 1rem 0 2rem;">
+            <p style="color: var(--text-muted);">✦ Maulana Rizki Ramahan — Yadika 9 ✦</p>
+        </div>
+    </div>
+</main>
+<footer>
+    <div class="container">
+        <p>© 2025 Maulana Rizki Ramadhan — built with warmth & creativity</p>
+    </div>
+</footer>
+</body>
+</html>
