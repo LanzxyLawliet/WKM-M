@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Maulana | Log Aktivitas Harian</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Markdown parser (optional, for rich text) -->
+    <script src="activities-script.js"></script>
     <style>
         * {
             margin: 0;
@@ -23,10 +25,11 @@
             --text-light: #f1f5f9;
             --text-muted: #94a3b8;
             --border-dim: #2d2d3a;
+            --card-radius: 1.25rem;
         }
 
         body {
-            font-family: 'Inter', system-ui, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
             background: var(--bg-dark);
             color: var(--text-light);
             line-height: 1.5;
@@ -78,17 +81,18 @@
             transition: 0.2s;
         }
 
-        .nav-links a:hover, .nav-links a.active {
+        .nav-links a:hover,
+        .nav-links a.active {
             color: var(--accent-yellow);
             border-bottom: 2px solid var(--accent-yellow);
             padding-bottom: 0.25rem;
         }
 
-        /* filter & sort bar */
+        /* Controls bar */
         .controls-bar {
             background: var(--surface-dark);
             border-radius: 1rem;
-            padding: 1.2rem 1.5rem;
+            padding: 1rem 1.5rem;
             margin: 1.5rem 0 2rem;
             border: 1px solid var(--border-dim);
             display: flex;
@@ -98,19 +102,19 @@
             gap: 1rem;
         }
 
-        .filter-group {
+        .filter-group, .sort-group {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
             align-items: center;
         }
 
-        .filter-group label {
+        .filter-group label, .sort-group label {
             font-weight: 600;
             color: var(--text-muted);
         }
 
-        .filter-btn {
+        .filter-btn, .sort-btn {
             background: var(--surface-elevated);
             border: 1px solid var(--border-dim);
             padding: 0.4rem 1rem;
@@ -121,13 +125,13 @@
             color: var(--text-light);
         }
 
-        .filter-btn.active {
+        .filter-btn.active, .sort-btn.active {
             background: var(--primary-blue);
             border-color: var(--primary-blue);
             color: white;
         }
 
-        .filter-btn:hover {
+        .filter-btn:hover, .sort-btn:hover {
             background: var(--primary-dark);
             border-color: var(--accent-yellow);
         }
@@ -141,74 +145,110 @@
             font-family: inherit;
         }
 
-        .sort-group {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-        }
-
-        .sort-btn {
-            background: var(--surface-elevated);
-            border: 1px solid var(--border-dim);
-            padding: 0.4rem 1rem;
-            border-radius: 40px;
-            cursor: pointer;
-        }
-
-        .sort-btn.active {
-            background: var(--primary-blue);
-            color: white;
-        }
-
-        /* activity cards */
+        /* Activity list */
         .activities-log {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
-            margin: 2rem 0 3rem;
+            gap: 1.5rem;
+            margin: 1rem 0 2rem;
         }
 
         .log-card {
             background: var(--surface-dark);
-            border-radius: 1.25rem;
+            border-radius: var(--card-radius);
             border: 1px solid var(--border-dim);
             overflow: hidden;
-            transition: 0.2s;
+            transition: all 0.2s ease;
         }
 
         .log-card:hover {
             border-color: var(--accent-yellow);
-            transform: translateY(-3px);
+            transform: translateY(-2px);
         }
 
-        .log-header {
-            padding: 1.2rem 1.8rem 0.5rem;
-            border-bottom: 1px solid var(--border-dim);
+        .card-compact {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            background: var(--surface-dark);
+            transition: background 0.2s;
         }
 
-        .log-date {
-            font-size: 0.9rem;
-            font-weight: 700;
+        .card-compact:hover {
             background: var(--surface-elevated);
-            display: inline-block;
-            padding: 0.2rem 0.9rem;
+        }
+
+        .date-badge {
+            background: var(--surface-elevated);
+            padding: 0.3rem 1rem;
             border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 600;
             color: var(--accent-yellow);
+            white-space: nowrap;
         }
 
-        .log-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-top: 0.5rem;
+        .title-preview {
+            flex: 2;
+            font-weight: 600;
+            font-size: 1.1rem;
         }
 
-        .log-description {
-            padding: 0.8rem 1.8rem;
+        .short-desc {
+            flex: 3;
             color: var(--text-muted);
+            font-size: 0.9rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
-        .gallery-section {
-            padding: 0.5rem 1.8rem 1.5rem;
+        .thumbnail-preview {
+            width: 48px;
+            height: 48px;
+            border-radius: 0.5rem;
+            object-fit: cover;
+            background: var(--surface-elevated);
+            border: 1px solid var(--border-dim);
+        }
+
+        .expand-icon {
+            color: var(--primary-blue);
+            font-size: 1.2rem;
+            transition: transform 0.2s;
+        }
+
+        .detail-panel {
+            display: none;
+            padding: 1rem 1.8rem 1.8rem;
+            border-top: 1px solid var(--border-dim);
+            background: var(--surface-elevated);
+        }
+
+        .detail-panel.open {
+            display: block;
+        }
+
+        .full-description {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            color: var(--text-light);
+        }
+
+        .full-description p {
+            margin: 0.5rem 0;
+        }
+        .full-description ul, .full-description ol {
+            margin: 0.5rem 0 0.5rem 1.5rem;
+        }
+        .full-description strong {
+            color: var(--primary-blue);
+        }
+        .full-description em {
+            color: var(--accent-gold);
         }
 
         .gallery-title {
@@ -216,27 +256,30 @@
             text-transform: uppercase;
             color: var(--primary-blue);
             margin-bottom: 0.8rem;
+            letter-spacing: 1px;
         }
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 0.8rem;
         }
 
         .gallery-item {
             aspect-ratio: 4/3;
-            border-radius: 0.8rem;
+            border-radius: 0.6rem;
             overflow: hidden;
             cursor: pointer;
             border: 1px solid var(--border-dim);
             transition: 0.2s;
+            background: var(--surface-dark);
         }
 
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
         .gallery-item:hover {
@@ -244,26 +287,84 @@
             transform: scale(1.02);
         }
 
-        .empty-state {
+        .load-more-container {
             text-align: center;
-            padding: 3rem;
-            background: var(--surface-dark);
-            border-radius: 2rem;
-            color: var(--text-muted);
+            margin: 2rem 0 3rem;
+        }
+
+        .load-more-btn {
+            background: var(--surface-elevated);
+            border: 1px solid var(--border-dim);
+            padding: 0.7rem 2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            color: var(--text-light);
+        }
+
+        .load-more-btn:hover {
+            background: var(--primary-blue);
+            border-color: var(--primary-blue);
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.92);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .lightbox img {
+            max-width: 85%;
+            max-height: 85%;
+            border-radius: 1rem;
+            border: 2px solid var(--accent-yellow);
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 2.5rem;
+            color: white;
+            cursor: pointer;
         }
 
         footer {
             text-align: center;
             padding: 2rem 0;
             border-top: 1px solid var(--border-dim);
-            margin-top: 2rem;
             color: var(--text-muted);
             background: var(--surface-dark);
         }
 
         @media (max-width: 720px) {
-            nav { flex-direction: column; align-items: flex-start; }
-            .controls-bar { flex-direction: column; align-items: stretch; }
+            .card-compact {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            .short-desc {
+                white-space: normal;
+                width: 100%;
+                order: 3;
+            }
+            .thumbnail-preview {
+                order: 2;
+            }
+            .expand-icon {
+                order: 4;
+            }
+            .controls-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
         }
     </style>
 </head>
@@ -283,18 +384,17 @@
 </header>
 
 <main class="container">
-    <h1 class="page-title" style="margin-top: 1rem;">Log Aktivitas Harian</h1>
-    
-    <!-- Filter & Sort Controls -->
+    <h1 style="font-size: 2rem; font-weight: 800; margin: 1.5rem 0 0.5rem; border-left: 5px solid var(--accent-yellow); padding-left: 1rem;">Log Aktivitas Harian</h1>
+
     <div class="controls-bar">
         <div class="filter-group">
             <label><i class="fas fa-filter"></i> Filter:</label>
             <button data-filter="day" class="filter-btn">Hari Ini</button>
             <button data-filter="week" class="filter-btn">Minggu Ini</button>
             <button data-filter="month" class="filter-btn">Bulan Ini</button>
-            <input type="date" id="customDatePicker" class="date-picker" value="">
+            <input type="date" id="customDatePicker" class="date-picker">
             <button id="applyCustomDate" class="filter-btn">Pilih Tanggal</button>
-            <button id="resetFilter" class="filter-btn">Reset Filter</button>
+            <button id="resetFilter" class="filter-btn">Reset</button>
         </div>
         <div class="sort-group">
             <label><i class="fas fa-sort"></i> Urut:</label>
@@ -304,22 +404,23 @@
     </div>
 
     <div id="activitiesContainer" class="activities-log">
-        <div class="empty-state"><i class="fas fa-spinner fa-pulse"></i> Memuat data...</div>
+        <div class="empty-state" style="text-align:center; padding:2rem;">Memuat...</div>
     </div>
+    <div id="loadMoreContainer" class="load-more-container"></div>
 </main>
 
 <footer>
     <div class="container">
-        <p>© 2025 Maulana Rizki Ramahan — catatan harian magang & dokumentasi</p>
+        <p>© 2025 Maulana Rizki Ramahan — catatan harian magang</p>
     </div>
 </footer>
 
-<!-- Lightbox modal -->
-<div id="lightbox" class="lightbox" style="display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; z-index: 1000;">
-    <span id="closeLightbox" style="position: absolute; top: 2rem; right: 2rem; font-size: 2.5rem; cursor: pointer; color: white;">&times;</span>
-    <img id="lightboxImg" style="max-width: 85%; max-height: 85%; border-radius: 1rem; border: 2px solid var(--accent-yellow);">
+<div id="lightbox" class="lightbox">
+    <span class="close-lightbox">&times;</span>
+    <img id="lightboxImg" src="" alt="preview">
 </div>
 
-<script src="activities-script.js"></script>
+<!-- External JavaScript (uses your database) -->
+<script src="activities-main.js"></script>
 </body>
 </html>
