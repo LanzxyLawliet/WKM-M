@@ -3,6 +3,38 @@
 //
 
 const allActivities = [
+        {
+        id: 10,
+        date: "2026-04-13",
+        title: "Membantu Mang dede membersihkan Ruko baru",
+        shortDesc: "Membantu Mang dede membersihkan Ruko baru.",
+        descriptionMd: `
+## 🧹 Membersihkan Ruko Baru
+Membantu Mang Dede membersihkan ruko baru bersama Irwan dan Bang angga.
+- Menyapu lantai
+- Mengepel seluruh area
+- Merapikan barang-barang yang berserakan
+- Hasil: Insyaallh bersih
+        `,
+        imageUrls: ["pictures/2026-04-13-2.jpeg", "pictures/2026-04-13-3.jpeg"],
+        tags: ["Teamwork"]
+    },
+    {
+        id: 9,
+        date: "2026-04-13",
+        title: "Membuat topologi router bus dynamic dengan packettracer",
+        shortDesc: "Membuat topologi router bus dynamic dengan cisco packet tracer.",
+        descriptionMd: `
+## 📡 Cisco Packet Tracer - Router BUS Dynamic
+
+- **Topologi:** 4 router terhubung dalam konfigurasi BUS
+- **Routing Dynamic:** menggunakan RIP untuk melakukan routing otomatis dengan menggunakan 4 router pt dan 4 pc.
+- **Hasil:** semua router berhasil saling berkomunikasi dengan routing yang stabil
+
+        `,
+        imageUrls: ["pictures/2026-04-13-1.jpeg"],
+        tags: ["Web Design", "Frontend", "Redesign"]
+    },
     {
         id: 8,
         date: "2026-04-11",
