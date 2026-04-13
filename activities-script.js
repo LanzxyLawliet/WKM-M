@@ -1,50 +1,7 @@
-// activities-script.js
+// activities-main.js
+// Activity log data with shortDesc and descriptionMd (Markdown)
 
-// ---------- DATA: daily activity logs ----------
-/**
- * ============================================================
- * 📘 GUIDE: Using rich text in `descriptionMd` (Markdown syntax)
- * ============================================================
- *
- * To make activity descriptions more expressive (bold, italic, lists, etc.),
- * replace the plain `description` field with a `descriptionMd` field.
- *
- * Example format:
- * {
- *   id: 9,
- *   date: "2026-04-12",
- *   title: "Belajar Markdown untuk log aktivitas",
- *   descriptionMd: `
- *     **Hari ini** saya belajar cara menulis *deskripsi kaya*.
- *
- *     - Poin pertama: gunakan **bold** dengan `**` dua bintang.
- *     - Poin kedua: *italic* dengan `*` satu bintang.
- *     - Poin ketiga: buat daftar dengan `- ` atau `1. `.
- *
- *     > Tips: Baris kosong memisahkan paragraf.
- *     `,
- *   imageUrls: [...]
- * }
- *
- * Supported syntax (processed by `marked.js`):
- * - **bold**       → <strong>bold</strong>
- * - *italic*       → <em>italic</em>
- * - `- item`       → unordered list
- * - `1. item`      → ordered list
- * - `> quote`      → blockquote
- * - `# Heading`    → heading level 1-6
- * - `[link](url)`  → hyperlink
- *
- * If you still use plain `description`, the script will convert basic
- * **bold**, *italic*, and lines starting with `- ` into HTML automatically.
- * But for full Markdown, use `descriptionMd` and ensure `marked.js` is loaded.
- *
- * ------------------------------------------------------------
- * 🖼️ Images: Store files inside `/pictures/` folder, use relative paths.
- * 🗂️ Date format: YYYY-MM-DD (e.g., "2026-04-01").
- * ============================================================
- */
-const activityLogs = [
+const allActivities = [
     {
         id: 8,
         date: "2026-04-11",
