@@ -1,5 +1,6 @@
 // activities-main.js
 // Activity log data with shortDesc and descriptionMd (Markdown)
+//
 
 const allActivities = [
     {
