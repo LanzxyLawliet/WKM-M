@@ -46,22 +46,6 @@
  */
 const activityLogs = [
     {
-        id: 9,
-        date: "2026-04-12",
-        title: "Belajar Markdown untuk log aktivitas",
-        descriptionMd: `
-        **Hari ini** saya belajar cara menulis *deskripsi kaya*.
-
-        - Poin pertama: gunakan **bold** dengan \`**\` dua bintang.
-        - Poin kedua: *italic* dengan \`*\` satu bintang.
-        - Poin ketiga: buat daftar dengan \`- \` atau \`1. \`.
-
-        > Tips: Baris kosong memisahkan paragraf.
-        `,
-        imageUrls: [
-        ]
-    },
-    {
         id: 8,
         date: "2026-04-11",
         title: "Meremake website laporan magang",
