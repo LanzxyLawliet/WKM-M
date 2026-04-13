@@ -1,276 +1,245 @@
-// activities-script.js
+// activities-main.js
+// Activity log data with shortDesc and descriptionMd (Markdown)
 
-// ---------- DATA: daily activity logs ----------
-/**
- * ============================================================
- * 📘 GUIDE: Using rich text in `descriptionMd` (Markdown syntax)
- * ============================================================
- *
- * To make activity descriptions more expressive (bold, italic, lists, etc.),
- * replace the plain `description` field with a `descriptionMd` field.
- *
- * Example format:
- * {
- *   id: 9,
- *   date: "2026-04-12",
- *   title: "Belajar Markdown untuk log aktivitas",
- *   descriptionMd: `
- *     **Hari ini** saya belajar cara menulis *deskripsi kaya*.
- *
- *     - Poin pertama: gunakan **bold** dengan `**` dua bintang.
- *     - Poin kedua: *italic* dengan `*` satu bintang.
- *     - Poin ketiga: buat daftar dengan `- ` atau `1. `.
- *
- *     > Tips: Baris kosong memisahkan paragraf.
- *     `,
- *   imageUrls: [...]
- * }
- *
- * Supported syntax (processed by `marked.js`):
- * - **bold**       → <strong>bold</strong>
- * - *italic*       → <em>italic</em>
- * - `- item`       → unordered list
- * - `1. item`      → ordered list
- * - `> quote`      → blockquote
- * - `# Heading`    → heading level 1-6
- * - `[link](url)`  → hyperlink
- *
- * If you still use plain `description`, the script will convert basic
- * **bold**, *italic*, and lines starting with `- ` into HTML automatically.
- * But for full Markdown, use `descriptionMd` and ensure `marked.js` is loaded.
- *
- * ------------------------------------------------------------
- * 🖼️ Images: Store files inside `/pictures/` folder, use relative paths.
- * 🗂️ Date format: YYYY-MM-DD (e.g., "2026-04-01").
- * ============================================================
- */
-const activityLogs = [
-    {
-        id: 9,
-        date: "2026-04-12",
-        title: "Belajar Markdown untuk log aktivitas",
-        descriptionMd: `
-        **Hari ini** saya belajar cara menulis *deskripsi kaya*.
-
-        - Poin pertama: gunakan **bold** dengan \`**\` dua bintang.
-        - Poin kedua: *italic* dengan \`*\` satu bintang.
-        - Poin ketiga: buat daftar dengan \`- \` atau \`1. \`.
-
-        > Tips: Baris kosong memisahkan paragraf.
-        `,
-        imageUrls: [
-        ]
-    },
+const allActivities = [
     {
         id: 8,
         date: "2026-04-11",
         title: "Meremake website laporan magang",
-        description: "Mengganti website laporan magang dengan tampilan yang lebih menarik, dan sedikit penambahan fitur.",
-        imageUrls: [
-            "pictures/1.png",
-            "pictures/2.png",
-            "pictures/3.png"
-        ]
+        shortDesc: "Mengganti website laporan magang dengan tampilan yang lebih menarik, dan sedikit penambahan fitur.",
+        descriptionMd: "## 🎨 Perubahan yang dilakukan\n\n- **Redesain antarmuka** menggunakan komponen yang lebih modern\n- Menambahkan **fitur filter dan sort** pada halaman aktivitas\n- Implementasi **lightbox gallery** untuk dokumentasi\n- Optimasi kecepatan dengan pagination (load lebih banyak)\n\n> *“Tampilan yang baik meningkatkan semangat bekerja.”*",
+        imageUrls: ["pictures/1.png", "pictures/2.png", "pictures/3.png"],
+        tags: ["Web Design", "Frontend", "Redesign"]
     },
     {
         id: 7,
         date: "2026-04-10",
         title: "Membuat website laporan magang",
-        description: "Membuat website laporan magang untuk menampilkan aktivitas selama magang, dan menyimpan projek dimasa mendatang.",
-        imageUrls: [
-            "pictures/IMG-20260410-WA0106.jpeg",
-            "pictures/IMG-20260410-WA0108.jpeg",
-            "pictures/IMG-20260410-WA0110.jpeg"
-        ]
+        shortDesc: "Membuat website laporan magang untuk menampilkan aktivitas selama magang, dan menyimpan projek dimasa mendatang.",
+        descriptionMd: "## 🚀 Website laporan magang\n\n- **Struktur halaman**: Home, About, Activities, Projects\n- Menggunakan **HTML5, CSS3, JavaScript** murni\n- **Responsif** untuk desktop dan mobile\n- Menyediakan **gallery** untuk setiap aktivitas\n\n**Tujuan:** mendokumentasikan hasil belajar secara profesional.",
+        imageUrls: ["pictures/IMG-20260410-WA0106.jpeg", "pictures/IMG-20260410-WA0108.jpeg", "pictures/IMG-20260410-WA0110.jpeg"],
+        tags: ["HTML", "CSS", "JS", "Portofolio"]
     },
     {
         id: 6,
         date: "2026-04-09",
         title: "Mengulang kembali projek cisco kemarin dan Membuat cisco topologi router bus Static dan Dynamic",
-        description: "Membuat projek cisco yang lalu, dan setelah itu membuat topologi router bus static dan dynamic dengan menggunakan cisco packet tracer. Gagal saat melakukan manual routing pada topologi static, dan gagal saat mengconfing OSPF dan RIP",
-        imageUrls: [
-            "pictures/IMG-20260409-WA0121.jpg",
-        ]
+        shortDesc: "Membuat topologi router bus static dan dynamic dengan cisco packet tracer. Gagal saat manual routing dan konfigurasi OSPF/RIP.",
+        descriptionMd: "## 📡 Cisco Packet Tracer\n\n- **Topologi BUS** dengan routing static dan dynamic\n- Kendala:\n  - Gagal saat **manual routing** pada topologi static\n  - Konfigurasi **OSPF** dan **RIP** tidak berhasil\n- **Pelajaran:** perlu pemahaman lebih dalam tentang tabel routing dan metric\n\n> *Kegagalan adalah langkah menuju sukses.*",
+        imageUrls: ["pictures/IMG-20260409-WA0121.jpg"],
+        tags: ["Cisco", "Routing", "Static", "Dynamic"]
     },
     {
         id: 5,
         date: "2026-04-08",
         title: "Membuat sistem jaringan 4 gedung dengan cisco packet tracer menggunakan 5 switch",
-        description: "4 gedung dengan 5 switch yang hanya dapat berkomunikasi ke vlan yang sama. Berhasil dengan lancar dan mempelajari bagaimana pergerakan data pada jaringan cisco.",
-        imageUrls: [
-            "pictures/IMG_20260408_165925_533.webp",
-            "pictures/IMG-20260408-WA0099.jpg"
-        ]
+        shortDesc: "4 gedung dengan 5 switch yang hanya dapat berkomunikasi ke vlan yang sama. Berhasil dengan lancar.",
+        descriptionMd: "## 🏢 Jaringan 4 Gedung\n\n- **Topologi:** 4 gedung, 5 switch, VLAN terisolasi\n- **Hasil:** perangkat hanya bisa komunikasi dalam satu VLAN\n- **Pembelajaran:**\n  - Pergerakan data pada switch\n  - Konsep **broadcast domain** dan **collision domain**\n- **Status:** ✅ Berhasil",
+        imageUrls: ["pictures/IMG_20260408_165925_533.webp", "pictures/IMG-20260408-WA0099.jpg"],
+        tags: ["Cisco", "VLAN", "Switching"]
     },
     {
         id: 4,
         date: "2026-04-07",
         title: "Mengikuti pak Awan mengajar di sandikta",
-        description: "Mempraktekan materi penggunaan Mikrotik router dengan topologi BUS",
-        imageUrls: [
-            "pictures/IMG_20260407_164007_396.jpg",
-        ]
+        shortDesc: "Mempraktekan materi penggunaan Mikrotik router dengan topologi BUS",
+        descriptionMd: "## 🧑‍🏫 Workshop Mikrotik\n\n- **Topik:** Router Mikrotik dengan topologi BUS\n- **Praktik:**\n  - Konfigurasi dasar **IP address**\n  - **Routing** sederhana\n  - **Firewall** filter\n- **Manfaat:** memahami perangkat keras jaringan secara langsung",
+        imageUrls: ["pictures/IMG_20260407_164007_396.jpg"],
+        tags: ["Mikrotik", "Routing", "Workshop"]
     },
     {
         id: 3,
         date: "2026-04-06",
         title: "Debian DHCP server virtualbox ke client virtualbox",
-        description: "Membuat DHCP server di virtualbox dan mengkonfigurasi client virtualbox untuk mendapatkan IP secara otomatis.",
-        imageUrls: [
-            "pictures/IMG_20260406_153608_852.webp",
-            "pictures/img.jpg"
-        ]
+        shortDesc: "Membuat DHCP server di virtualbox dan mengkonfigurasi client untuk mendapatkan IP secara otomatis.",
+        descriptionMd: "## 🖥️ Debian DHCP Server\n\n- **Langkah:**\n  1. Install `isc-dhcp-server` di Debian\n  2. Konfigurasi file `/etc/dhcp/dhcpd.conf`\n  3. Set **interface** dan **subnet**\n  4. Restart service\n- **Hasil:** Client virtualbox berhasil mendapat IP otomatis\n\n> *DHCP menghemat waktu konfigurasi manual.*",
+        imageUrls: ["pictures/IMG_20260406_153608_852.webp", "pictures/img.jpg"],
+        tags: ["Debian", "DHCP", "VirtualBox"]
     },
     {
         id: 2,
         date: "2026-04-02",
         title: "Menginstall debian dan membuat DHCP server",
-        description: "Gagal saat restart server DHCP server",
-        imageUrls: [
-            "pictures/IMG_20260402_170438_922.webp",
-        ]
+        shortDesc: "Gagal saat restart server DHCP server",
+        descriptionMd: "## ❌ Percobaan DHCP Server (Gagal)\n\n- **Kegiatan:** Install Debian dan setup DHCP server\n- **Kendala:** Setelah konfigurasi, service gagal restart karena **error pada file konfigurasi**\n- **Analisis sementara:** kemungkinan kesalahan pada deklarasi subnet atau interface\n- **Solusi:** akan diulang dengan panduan lebih teliti",
+        imageUrls: ["pictures/IMG_20260402_170438_922.webp"],
+        tags: ["Debian", "DHCP", "Troubleshoot"]
     },
     {
         id: 1,
         date: "2026-04-01",
         title: "Membuat paparan linux dasar serta membuat server linux",
-        description: "Paparan tentang linux dasar seperti mengenal perintah navigasi, serta membuat server linux dengan menggunakan virtualbox.",
-        imageUrls: [
-            "pictures/IMG_20260401_155537_555.webp"
-        ]
+        shortDesc: "Paparan tentang linux dasar seperti mengenal perintah navigasi, serta membuat server linux dengan virtualbox.",
+        descriptionMd: "## 🐧 Linux Dasar & Server\n\n- **Perintah navigasi:** `ls`, `cd`, `pwd`, `mkdir`\n- **Manajemen file:** `cp`, `mv`, `rm`, `touch`\n- **Instalasi VirtualBox** dan setup **Ubuntu Server**\n- Konfigurasi **network adapter** dan akses SSH\n\n> *“Linux bukan hanya sistem operasi, tapi filosofi kolaborasi.”*",
+        imageUrls: ["pictures/IMG_20260401_155537_555.webp"],
+        tags: ["Linux", "VirtualBox", "Server"]
     }
 ];
 
-// Global state
-let currentFilter = "none"; // 'day', 'week', 'month', 'custom'
-let customFilterDate = null;   // Date object for custom day
-let currentSort = "newest";    // 'newest' or 'oldest'
+// ---------- State ----------
+let currentFilter = "none";
+let customFilterDate = null;
+let currentSort = "newest";
+let displayedCount = 5;
+let filteredActivities = [...allActivities];
 
-// Helper: format date to readable (DD MMM YYYY)
-function formatDate(dateString) {
-    // Parse YYYY-MM-DD as local date
-    const [year, month, day] = dateString.split('-').map(Number);
-    const localDate = new Date(year, month - 1, day);
-    return localDate.toLocaleDateString('id-ID', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric'
-    });
+// Helper: format date (local, no timezone bug)
+function formatLocalDate(dateStr) {
+    const [year, month, day] = dateStr.split('-').map(Number);
+    const d = new Date(year, month - 1, day);
+    return d.toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' });
 }
-// Helper: check if a log date is within today
+
 function isToday(dateStr) {
     const today = new Date();
-    const todayStr = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
+    const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
     return dateStr === todayStr;
 }
-
-// Helper: check if within current week (Monday to Sunday)
 function isThisWeek(dateStr) {
     const now = new Date();
     const startOfWeek = new Date(now);
-    const day = now.getDay(); // 0 = Sunday
-    const diffToMonday = (day === 0 ? 6 : day - 1);
-    startOfWeek.setDate(now.getDate() - diffToMonday);
+    const day = now.getDay();
+    const diff = (day === 0 ? 6 : day - 1);
+    startOfWeek.setDate(now.getDate() - diff);
     startOfWeek.setHours(0, 0, 0, 0);
-    
     const endOfWeek = new Date(startOfWeek);
     endOfWeek.setDate(startOfWeek.getDate() + 6);
     endOfWeek.setHours(23, 59, 59, 999);
-    
     const logDate = new Date(dateStr);
     return logDate >= startOfWeek && logDate <= endOfWeek;
 }
-
-// Helper: check if within current month
 function isThisMonth(dateStr) {
     const now = new Date();
     const logDate = new Date(dateStr);
     return logDate.getMonth() === now.getMonth() && logDate.getFullYear() === now.getFullYear();
 }
 
-// Helper: filter logs based on currentFilter & customFilterDate
-function filterLogs(logs) {
-    if (currentFilter === "day") {
-        return logs.filter(log => isToday(log.date));
-    } else if (currentFilter === "week") {
-        return logs.filter(log => isThisWeek(log.date));
-    } else if (currentFilter === "month") {
-        return logs.filter(log => isThisMonth(log.date));
-    } else if (currentFilter === "custom" && customFilterDate) {
-        const targetDate = new Date(customFilterDate);
-        targetDate.setHours(0, 0, 0, 0);
-        return logs.filter(log => {
-            const logDate = new Date(log.date);
-            logDate.setHours(0, 0, 0, 0);
-            return logDate.getTime() === targetDate.getTime();
-        });
-    }
-    return logs; // no filter
+function applyFilter() {
+    let filtered = [...allActivities];
+    if (currentFilter === "day") filtered = filtered.filter(a => isToday(a.date));
+    else if (currentFilter === "week") filtered = filtered.filter(a => isThisWeek(a.date));
+    else if (currentFilter === "month") filtered = filtered.filter(a => isThisMonth(a.date));
+    else if (currentFilter === "custom" && customFilterDate) filtered = filtered.filter(a => a.date === customFilterDate);
+    return filtered;
 }
 
-// Render activities with current filter & sort
+function applySort(activities) {
+    if (currentSort === "newest") return [...activities].sort((a, b) => new Date(b.date) - new Date(a.date));
+    else return [...activities].sort((a, b) => new Date(a.date) - new Date(b.date));
+}
+
+function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/[&<>]/g, function(m) {
+        if (m === '&') return '&amp;';
+        if (m === '<') return '&lt;';
+        if (m === '>') return '&gt;';
+        return m;
+    });
+}
+
 function renderActivities() {
     const container = document.getElementById("activitiesContainer");
+    const loadMoreContainer = document.getElementById("loadMoreContainer");
     if (!container) return;
 
-    // Apply filter first
-    let filtered = filterLogs(activityLogs);
-    
-    // Apply sorting
-    if (currentSort === "newest") {
-        filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
-    } else {
-        filtered.sort((a, b) => new Date(a.date) - new Date(b.date));
-    }
+    filteredActivities = applyFilter();
+    filteredActivities = applySort(filteredActivities);
+    const total = filteredActivities.length;
+    const hasMore = displayedCount < total;
+    const itemsToShow = filteredActivities.slice(0, displayedCount);
 
-    if (filtered.length === 0) {
-        container.innerHTML = `<div class="empty-state"><i class="fas fa-clipboard-list"></i> Tidak ada aktivitas untuk filter ini.</div>`;
+    if (itemsToShow.length === 0) {
+        container.innerHTML = `<div class="empty-state" style="text-align:center; padding:2rem;"><i class="fas fa-calendar-times"></i> Tidak ada aktivitas untuk filter ini.</div>`;
+        loadMoreContainer.innerHTML = "";
         return;
     }
 
     let html = "";
-    for (const log of filtered) {
-        let galleryHtml = "";
-        if (log.imageUrls && log.imageUrls.length > 0) {
-            galleryHtml = `<div class="gallery-section">
-                            <div class="gallery-title"><i class="fas fa-images"></i> Galeri dokumentasi</div>
-                            <div class="gallery-grid">`;
-            log.imageUrls.forEach((imgUrl, idx) => {
-                galleryHtml += `<div class="gallery-item" data-fullimg="${imgUrl}">
-                                    <img src="${imgUrl}" alt="aktivitas ${log.title}" loading="lazy">
-                                </div>`;
-            });
-            galleryHtml += `</div></div>`;
-        } else {
-            galleryHtml = `<div class="gallery-section"><div class="gallery-title"><i class="fas fa-camera"></i> Tidak ada gambar</div></div>`;
-        }
-
+    for (const act of itemsToShow) {
+        const thumbUrl = (act.imageUrls && act.imageUrls.length) ? act.imageUrls[0] : "https://picsum.photos/id/20/48/48";
         html += `
-            <div class="log-card" data-id="${log.id}">
-                <div class="log-header">
-                    <div class="log-date"><i class="far fa-calendar-alt"></i> ${formatDate(log.date)}</div>
-                    <div class="log-title">📌 ${escapeHtml(log.title)}</div>
+            <div class="log-card" data-id="${act.id}">
+                <div class="card-compact" data-id="${act.id}">
+                    <div class="date-badge"><i class="far fa-calendar-alt"></i> ${formatLocalDate(act.date)}</div>
+                    <div class="title-preview">${escapeHtml(act.title)}</div>
+                    <div class="short-desc">${escapeHtml(act.shortDesc)}</div>
+                    <img class="thumbnail-preview" src="${thumbUrl}" alt="thumbnail" loading="lazy">
+                    <div class="expand-icon"><i class="fas fa-chevron-down"></i></div>
                 </div>
-                <div class="log-description">
-                    ${escapeHtml(log.description)}
+                <div class="detail-panel" id="detail-${act.id}">
+                    <div class="full-description" id="md-content-${act.id}"></div>
+                    ${act.tags ? `<div class="tags">${act.tags.map(t => `<span class="tag">#${escapeHtml(t)}</span>`).join('')}</div>` : ''}
+                    <div class="gallery-title"><i class="fas fa-images"></i> Galeri dokumentasi</div>
+                    <div class="gallery-grid" id="gallery-${act.id}"></div>
                 </div>
-                ${galleryHtml}
             </div>
         `;
     }
     container.innerHTML = html;
+
+    // Fill markdown and gallery for each activity
+    for (const act of itemsToShow) {
+        const mdDiv = document.getElementById(`md-content-${act.id}`);
+        if (mdDiv && act.descriptionMd) {
+            mdDiv.innerHTML = marked.parse(act.descriptionMd);
+        } else if (mdDiv) {
+            mdDiv.innerHTML = "<p><em>Tidak ada deskripsi detail.</em></p>";
+        }
+        const galleryDiv = document.getElementById(`gallery-${act.id}`);
+        if (galleryDiv && act.imageUrls && act.imageUrls.length) {
+            let galleryHtml = "";
+            for (const img of act.imageUrls) {
+                galleryHtml += `<div class="gallery-item" data-fullimg="${img}"><img src="${img}" loading="lazy" alt="gallery" onerror="this.src='https://picsum.photos/120/80?grayscale'"></div>`;
+            }
+            galleryDiv.innerHTML = galleryHtml;
+        } else if (galleryDiv) {
+            galleryDiv.innerHTML = "<p style='color:var(--text-muted)'>Tidak ada gambar.</p>";
+        }
+    }
+
+    attachExpandListeners();
     attachGalleryLightbox();
+
+    if (hasMore) {
+        loadMoreContainer.innerHTML = `<button id="loadMoreBtn" class="load-more-btn"><i class="fas fa-plus-circle"></i> Load lebih banyak (${displayedCount}/${total})</button>`;
+        document.getElementById("loadMoreBtn")?.addEventListener("click", () => {
+            displayedCount += 5;
+            renderActivities();
+        });
+    } else {
+        loadMoreContainer.innerHTML = total > 0 ? `<p style="text-align:center; color:var(--text-muted);">✨ Semua aktivitas ditampilkan (${total} item)</p>` : "";
+    }
 }
 
-// Lightbox logic
+function attachExpandListeners() {
+    document.querySelectorAll('.card-compact').forEach(compact => {
+        const card = compact.closest('.log-card');
+        const detailPanel = card?.querySelector('.detail-panel');
+        const expandIcon = compact.querySelector('.expand-icon i');
+        if (!detailPanel) return;
+        const handler = () => {
+            const isOpen = detailPanel.classList.contains('open');
+            if (isOpen) {
+                detailPanel.classList.remove('open');
+                if (expandIcon) expandIcon.className = 'fas fa-chevron-down';
+            } else {
+                detailPanel.classList.add('open');
+                if (expandIcon) expandIcon.className = 'fas fa-chevron-up';
+            }
+        };
+        compact.removeEventListener('click', compact._expandHandler);
+        compact.addEventListener('click', handler);
+        compact._expandHandler = handler;
+    });
+}
+
 function attachGalleryLightbox() {
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
-    const closeBtn = document.getElementById('closeLightbox');
+    const closeBtn = document.querySelector('.close-lightbox');
     if (!lightbox || !lightboxImg) return;
 
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    
     const openLightbox = (src) => {
         lightboxImg.src = src;
         lightbox.style.display = 'flex';
@@ -280,128 +249,87 @@ function attachGalleryLightbox() {
         lightboxImg.src = '';
     };
 
-    galleryItems.forEach(item => {
-        item.removeEventListener('click', item._clickHandler);
-        const handler = () => {
-            const imgElement = item.querySelector('img');
-            if (imgElement && imgElement.src) openLightbox(imgElement.src);
+    document.querySelectorAll('.gallery-item').forEach(item => {
+        item.removeEventListener('click', item._lightHandler);
+        const handler = (e) => {
+            e.stopPropagation();
+            const imgElem = item.querySelector('img');
+            if (imgElem && imgElem.src) openLightbox(imgElem.src);
+            else if (item.dataset.fullimg) openLightbox(item.dataset.fullimg);
         };
         item.addEventListener('click', handler);
-        item._clickHandler = handler;
+        item._lightHandler = handler;
     });
 
-    if (closeBtn) {
-        closeBtn.removeEventListener('click', closeBtn._closeHandler);
-        const closeHandler = () => closeLightbox();
-        closeBtn.addEventListener('click', closeHandler);
-        closeBtn._closeHandler = closeHandler;
-    }
-    // close when clicking background
-    lightbox.removeEventListener('click', lightbox._bgHandler);
-    lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) closeLightbox();
-    });
+    if (closeBtn) closeBtn.onclick = closeLightbox;
+    lightbox.onclick = (e) => { if (e.target === lightbox) closeLightbox(); };
 }
 
-// Helper: escape HTML
-function escapeHtml(str) {
-    return str.replace(/[&<>]/g, function(m) {
-        if (m === '&') return '&amp;';
-        if (m === '<') return '&lt;';
-        if (m === '>') return '&gt;';
-        return m;
-    });
-}
-
-// UI update: set active filter button style
-function setActiveFilterButton(activeFilter) {
-    const btns = document.querySelectorAll('.filter-btn');
-    btns.forEach(btn => {
-        const filterValue = btn.getAttribute('data-filter');
-        if ((filterValue === activeFilter) || (activeFilter === 'custom' && btn.id === 'applyCustomDate') || (activeFilter === 'none' && btn.id === 'resetFilter')) {
-            btn.classList.add('active');
-        } else {
-            btn.classList.remove('active');
-        }
-    });
-    // special for reset: also remove custom highlight
-    if (activeFilter === 'none') {
-        document.getElementById('resetFilter')?.classList.add('active');
-    } else {
-        document.getElementById('resetFilter')?.classList.remove('active');
-    }
-}
-
-// Event listeners
 function initControls() {
-    // Filter buttons
     document.querySelectorAll('[data-filter]').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            const filter = btn.getAttribute('data-filter');
-            if (filter === 'day') {
-                currentFilter = 'day';
-                customFilterDate = null;
-            } else if (filter === 'week') {
-                currentFilter = 'week';
-                customFilterDate = null;
-            } else if (filter === 'month') {
-                currentFilter = 'month';
-                customFilterDate = null;
-            }
-            setActiveFilterButton(currentFilter);
+        btn.addEventListener('click', () => {
+            currentFilter = btn.getAttribute('data-filter');
+            customFilterDate = null;
+            document.getElementById('customDatePicker').value = '';
+            displayedCount = 5;
             renderActivities();
+            updateActiveButtons();
         });
     });
-
-    // Custom date picker
-    const customDateInput = document.getElementById('customDatePicker');
-    const applyCustomBtn = document.getElementById('applyCustomDate');
-    if (applyCustomBtn && customDateInput) {
-        applyCustomBtn.addEventListener('click', () => {
-            const selectedDate = customDateInput.value;
-            if (selectedDate) {
+    const applyCustom = document.getElementById('applyCustomDate');
+    const datePicker = document.getElementById('customDatePicker');
+    if (applyCustom && datePicker) {
+        applyCustom.addEventListener('click', () => {
+            if (datePicker.value) {
                 currentFilter = 'custom';
-                customFilterDate = selectedDate;
-                setActiveFilterButton('custom');
+                customFilterDate = datePicker.value;
+                displayedCount = 5;
                 renderActivities();
-            } else {
-                alert("Pilih tanggal terlebih dahulu.");
-            }
+                updateActiveButtons();
+            } else alert("Pilih tanggal terlebih dahulu.");
         });
     }
-
-    // Reset filter
     const resetBtn = document.getElementById('resetFilter');
     if (resetBtn) {
         resetBtn.addEventListener('click', () => {
             currentFilter = 'none';
             customFilterDate = null;
-            if (customDateInput) customDateInput.value = '';
-            setActiveFilterButton('none');
+            datePicker.value = '';
+            displayedCount = 5;
             renderActivities();
+            updateActiveButtons();
         });
     }
-
-    // Sort buttons
     const sortNewest = document.getElementById('sortNewest');
     const sortOldest = document.getElementById('sortOldest');
     if (sortNewest && sortOldest) {
         sortNewest.addEventListener('click', () => {
             currentSort = 'newest';
+            displayedCount = 5;
+            renderActivities();
             sortNewest.classList.add('active');
             sortOldest.classList.remove('active');
-            renderActivities();
         });
         sortOldest.addEventListener('click', () => {
             currentSort = 'oldest';
+            displayedCount = 5;
+            renderActivities();
             sortOldest.classList.add('active');
             sortNewest.classList.remove('active');
-            renderActivities();
         });
     }
 }
 
-// Initial render when DOM ready
+function updateActiveButtons() {
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        const val = btn.getAttribute('data-filter');
+        if ((val === currentFilter) || (currentFilter === 'custom' && btn.id === 'applyCustomDate')) btn.classList.add('active');
+        else btn.classList.remove('active');
+    });
+    if (currentFilter === 'none') document.getElementById('resetFilter')?.classList.add('active');
+    else document.getElementById('resetFilter')?.classList.remove('active');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     initControls();
     renderActivities();
