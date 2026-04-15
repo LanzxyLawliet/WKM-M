@@ -86,7 +86,7 @@ const allActivities = [
 
 Untuk melihat hasil paparan dapat diakses melalui [Disini](https://canva.link/4phkr5a6ihow617)
         `,
-        imageUrls: ["pictures/2026-04-13-2.jpeg", "pictures/2026-04-13-3.jpeg"],
+        imageUrls: ["https://plus.unsplash.com/premium_photo-1680608979589-e9349ed066d5?q=80&w=928&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
         tags: ["Teamwork"]
     },
     {
@@ -102,7 +102,7 @@ Mengkonfigurasi dan membuat jaringan wlan pada Mikrotik.
 -   Membuat wlan dengan nama SSID "LANZY"
 -   Mengatur keamanan dengan WPA2-PSK dan password yang simpel
         `,
-        imageUrls: ["pictures/2026-04-13-2.jpeg", "pictures/2026-04-13-3.jpeg"],
+        imageUrls: ["https://images.unsplash.com/photo-1606904825846-647eb07f5be2?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
         tags: ["Mikrotik", "WLAN", "Networking"]
     },
     {
