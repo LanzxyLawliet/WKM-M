@@ -1,9 +1,111 @@
 // activities-main.js
 // Activity log data with shortDesc and descriptionMd (Markdown)
+/**
+ * ==================== GUIDE: descriptionMd (Markdown) ====================
+ * 
+ * Use `descriptionMd` instead of plain `description` to add rich formatting.
+ * It supports all common Markdown syntax, rendered by the 'marked' library.
+ * 
+ * -------------------------------------------------------------------------
+ * BASIC FORMATTING:
+ *   **bold**       → <strong>bold</strong>
+ *   *italic*       → <em>italic</em>
+ *   `inline code`  → <code>inline code</code>
+ * 
+ * HEADINGS:
+ *   # Heading 1    (rare, avoid)
+ *   ## Heading 2   (section title)
+ *   ### Heading 3  (subsection)
+ * 
+ * LISTS:
+ *   - Item 1       → unordered list
+ *   - Item 2
+ *   1. First       → ordered list
+ *   2. Second
+ * 
+ * BLOCKQUOTES:
+ *   > This is a quote
+ *   >> Nested quote
+ * 
+ * CODE BLOCKS (triple backticks):
+ *   ```js
+ *   const greeting = "Hello";
+ *   ```
+ * 
+ * LINKS & IMAGES (optional):
+ *   [Link text](https://example.com)
+ *   ![alt](image-url)
+ * 
+ * -------------------------------------------------------------------------
+ * EXAMPLE (copy-paste into your activity object):
+ * 
+ *   descriptionMd: "## 📘 Materi yang disampaikan\n\n" +
+ *                  "- **Perintah navigasi dasar**: `ls`, `cd`, `pwd`, `mkdir`\n" +
+ *                  "- **Manajemen file**: `cp`, `mv`, `rm`, `touch`\n" +
+ *                  "- Instalasi **VirtualBox** dan setup **Ubuntu Server**\n" +
+ *                  "  - Konfigurasi network adapter\n" +
+ *                  "  - Akses SSH\n\n" +
+ *                  "> *“Linux bukan hanya sistem operasi, tapi filosofi kolaborasi.”*"
+ * 
+ * TIPS:
+ *   - Use \n for line breaks.
+ *   - Keep headings concise (## or ###).
+ *   - For longer descriptions, use backticks for commands or code.
+ *   - The rendered HTML will inherit the page's dark theme styling.
+ * 
+ * =========================================================================
+ */
 //
 
 const allActivities = [
-        {
+    {
+        id: 13,
+        date: "2026-04-15",
+        title: "Mengintersep jaringan Wifi",
+        shortDesc: "Menggunakan aircrack-ng pada mesin linux untuk melakukan intersep.",
+        descriptionMd: `
+## Melakukan intersep pada jaringan wifi menggunakan aircrack-ng pada mesin linux
+### Hal yang dilakukan
+-   **Menggunakan wlan device sebagai monitor** : Dengan demikian wireless interface dapat menangkap bssid dan dapat digunakan untuk attack lebih lanjut.
+-   **Mendeautentikasi jaringan yang terhubung** : Membuat perangkat yang terhubung dengan wifi terputus secara paksa, dan dengan demikian ketika perangkat ingin terhubung kembali, interface yang memonitor akan mendapat handshake authentication
+-   **Menggunakan wordlist rockyou.txt untuk mebobol wifi** : Melakukan brutefoce dengan rangkaian kata yang terdapat pada wordlist rockyou.txt pada jaringan target wifi.
+
+### Status
+**Berhasil** membobol wifi dengan menggunakan wordlist rockyou.txt setelah mendapatkan handshake authentication, **Namun** gagal pada saat wifi menggunakan secure profile yang memiliki password yang kemungkinan besar tidak terdapat pada wordlist rockyou.txt, sehingga perlu menggunakan wordlist yang lebih lengkap atau melakukan serangan lain seperti WPS attack.
+        `,
+        imageUrls: ["pictures/lowresweb[12345678].png", "pictures/lowresweb[abcdefgh].png", "pictures/lowresweb[qwertyuiopasdfghjklzxcvbnm].png"],
+        tags: ["Aircrack-ng", "Wifi", "Linux"]
+    },
+    {
+        id: 12,
+        date: "2026-04-15",
+        title: "Menyelesaikan PPT paparan tentang AI",
+        shortDesc: "Membuat paparan tentang AI.",
+        descriptionMd: `
+## Membuat paparan tentang AI dan sekaligus belajar memahami materi dari paparan.
+
+Untuk melihat hasil paparan dapat diakses melalui [Disini](https://canva.link/4phkr5a6ihow617)
+        `,
+        imageUrls: ["pictures/2026-04-13-2.jpeg", "pictures/2026-04-13-3.jpeg"],
+        tags: ["Teamwork"]
+    },
+    {
+        id: 11,
+        date: "2026-04-14",
+        title: "Membuat jaringan wlan pada Mikrotik",
+        shortDesc: "Mengkonfigurasi dan membuat jaringan wlan pada Mikrotik.",
+        descriptionMd: `
+## Membuat Jaringan WLAN pada Mikrotik
+Mengkonfigurasi dan membuat jaringan wlan pada Mikrotik.
+
+-   Mengkonifigurasi dasar wlan untuk membuat jaringan wifi  
+-   Membuat wlan dengan nama SSID "LANZY"
+-   Mengatur keamanan dengan WPA2-PSK dan password yang simpel
+        `,
+        imageUrls: ["pictures/2026-04-13-2.jpeg", "pictures/2026-04-13-3.jpeg"],
+        tags: ["Mikrotik", "WLAN", "Networking"]
+    },
+    {
         id: 10,
         date: "2026-04-13",
         title: "Membantu Mang dede membersihkan Ruko baru",
