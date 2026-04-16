@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maulana | Modul: Pengujian Penetrasi Jaringan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary-blue: #3b82f6;
+            --accent-yellow: #facc15;
+            --accent-gold: #eab308;
+            --bg-dark: #0a0a0f;
+            --surface-dark: #12121a;
+            --surface-elevated: #1e1e2a;
+            --text-light: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border-dim: #2d2d3a;
+        }
+        body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg-dark); color: var(--text-light); line-height: 1.5; }
+        .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
+        .back-link { display: inline-block; margin-bottom: 2rem; color: var(--primary-blue); text-decoration: none; }
+        .back-link:hover { color: var(--accent-yellow); }
+        h1 { font-size: 2rem; margin-bottom: 0.5rem; color: var(--accent-yellow); }
+        .meta { color: var(--text-muted); margin-bottom: 2rem; border-bottom: 1px solid var(--border-dim); padding-bottom: 1rem; }
+        h2 { margin: 1.5rem 0 0.8rem; color: var(--primary-blue); }
+        h3 { margin: 1rem 0 0.5rem; color: var(--text-light); }
+        ul, ol { margin: 0.5rem 0 0.5rem 1.5rem; }
+        li { margin: 0.3rem 0; }
+        code { background: var(--surface-elevated); padding: 0.2rem 0.4rem; border-radius: 6px; font-family: monospace; }
+        pre { background: var(--surface-elevated); padding: 1rem; border-radius: 0.8rem; overflow-x: auto; margin: 1rem 0; }
+        .mock-data { background: var(--surface-dark); padding: 1rem; border-radius: 0.8rem; border-left: 4px solid var(--accent-yellow); margin: 1.5rem 0; }
+        footer { text-align: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-dim); color: var(--text-muted); }
+        @media (max-width: 720px) { .container { padding: 1rem; } }
+    </style>
+</head>
+<body>
+<div class="container">
+    <a href="../modules.html" class="back-link"><i class="fas fa-arrow-left"></i> Kembali ke Modul</a>
+    <h1>📘 Pengujian Penetrasi Jaringan</h1>
+    <div class="meta"><i class="far fa-clock"></i> Minggu 1-2 | 10 jam praktik | Tags: #Networking #Security #Metasploit</div>
+
+    <h2>📌 Tujuan Modul</h2>
+    <p>Memahami dan mempraktikkan metodologi ethical hacking dari awal hingga akhir pada lingkungan yang terkendali.</p>
+
+    <h2>🛠️ Alat yang Digunakan</h2>
+    <ul>
+        <li>Kali Linux (VM)</li>
+        <li>Nmap / masscan</li>
+        <li>Metasploit Framework</li>
+        <li>Burp Suite (opsional)</li>
+        <li>VirtualBox (target Windows/Linux)</li>
+    </ul>
+
+    <h2>📋 Langkah-Langkah Metodologi</h2>
+    <ol>
+        <li><strong>Reconnaissance (OSINT)</strong> – mengumpulkan informasi target tanpa interaksi langsung.</li>
+        <li><strong>Scanning</strong> – menggunakan Nmap untuk menemukan port terbuka, service, dan OS.</li>
+        <li><strong>Vulnerability Assessment</strong> – mencocokkan service dengan CVE yang diketahui.</li>
+        <li><strong>Exploitation</strong> – menggunakan Metasploit untuk mendapatkan akses.</li>
+        <li><strong>Post Exploitation</strong> – mengumpulkan bukti, privilege escalation, dan persistence.</li>
+        <li><strong>Reporting</strong> – menyusun laporan temuan dan rekomendasi perbaikan.</li>
+    </ol>
+
+    <h2>💡 Contoh Mock Data (hasil scanning)</h2>
+    <div class="mock-data">
+        <pre>{
+  "target": "192.168.1.10",
+  "open_ports": [22, 80, 443, 3306, 8080],
+  "os_guess": "Ubuntu 20.04",
+  "vulnerabilities": [
+    "CVE-2021-41773 (Apache Path Traversal)",
+    "CVE-2022-22965 (Spring4Shell)"
+  ],
+  "exploit_status": "success",
+  "access_gained": "www-data shell"
+}</pre>
+    </div>
+
+    <h2>📝 Catatan Pribadi</h2>
+    <p>Pada percobaan pertama, exploit terhadap Apache berhasil mendapatkan reverse shell. Namun setelah patching, serangan tidak berhasil. Ini menunjukkan pentingnya <strong>manajemen patch</strong>.</p>
+
+    <h2>📎 Referensi</h2>
+    <ul>
+        <li>Metasploit Unleashed – Offensive Security</li>
+        <li>Nmap Network Scanning – Gordon Lyon</li>
+        <li>OWASP Testing Guide</li>
+    </ul>
+
+    <footer>© 2025 Maulana Rizki Ramadhan — modul pembelajaran mandiri</footer>
+</div>
+</body>
+</html>

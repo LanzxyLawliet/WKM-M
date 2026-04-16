@@ -211,10 +211,12 @@ Membantu Mang Dede membersihkan ruko baru bersama Irwan dan Bang angga.
     }
 ];
 
+
 // ---------- State ----------
 let currentFilter = "none";
 let customFilterDate = null;
 let currentSort = "newest";
+let currentTagSearch = "";
 let displayedCount = 5;
 let filteredActivities = [...allActivities];
 
@@ -230,6 +232,7 @@ function isToday(dateStr) {
     const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
     return dateStr === todayStr;
 }
+
 function isThisWeek(dateStr) {
     const now = new Date();
     const startOfWeek = new Date(now);
@@ -243,6 +246,7 @@ function isThisWeek(dateStr) {
     const logDate = new Date(dateStr);
     return logDate >= startOfWeek && logDate <= endOfWeek;
 }
+
 function isThisMonth(dateStr) {
     const now = new Date();
     const logDate = new Date(dateStr);
@@ -251,10 +255,19 @@ function isThisMonth(dateStr) {
 
 function applyFilter() {
     let filtered = [...allActivities];
+    // Date filter
     if (currentFilter === "day") filtered = filtered.filter(a => isToday(a.date));
     else if (currentFilter === "week") filtered = filtered.filter(a => isThisWeek(a.date));
     else if (currentFilter === "month") filtered = filtered.filter(a => isThisMonth(a.date));
     else if (currentFilter === "custom" && customFilterDate) filtered = filtered.filter(a => a.date === customFilterDate);
+    
+    // Tag search filter (case-insensitive, partial match)
+    if (currentTagSearch.trim() !== "") {
+        const searchLower = currentTagSearch.toLowerCase();
+        filtered = filtered.filter(act => 
+            act.tags && act.tags.some(tag => tag.toLowerCase().includes(searchLower))
+        );
+    }
     return filtered;
 }
 
@@ -401,6 +414,7 @@ function attachGalleryLightbox() {
 }
 
 function initControls() {
+    // Date filter buttons
     document.querySelectorAll('[data-filter]').forEach(btn => {
         btn.addEventListener('click', () => {
             currentFilter = btn.getAttribute('data-filter');
@@ -435,6 +449,7 @@ function initControls() {
             updateActiveButtons();
         });
     }
+    // Sort buttons
     const sortNewest = document.getElementById('sortNewest');
     const sortOldest = document.getElementById('sortOldest');
     if (sortNewest && sortOldest) {
@@ -451,6 +466,15 @@ function initControls() {
             renderActivities();
             sortOldest.classList.add('active');
             sortNewest.classList.remove('active');
+        });
+    }
+    // Tag search input
+    const tagSearchInput = document.getElementById('tagSearchInput');
+    if (tagSearchInput) {
+        tagSearchInput.addEventListener('input', (e) => {
+            currentTagSearch = e.target.value;
+            displayedCount = 5;
+            renderActivities();
         });
     }
 }

@@ -30,12 +30,12 @@
         .nav-links a { text-decoration: none; font-weight: 600; color: var(--text-light); transition: 0.2s; }
         .nav-links a:hover, .nav-links a.active { color: var(--accent-yellow); border-bottom: 2px solid var(--accent-yellow); padding-bottom: 0.25rem; }
         .controls-bar { background: var(--surface-dark); border-radius: 1rem; padding: 1rem 1.5rem; margin: 1.5rem 0 2rem; border: 1px solid var(--border-dim); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; }
-        .filter-group, .sort-group { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
-        .filter-group label, .sort-group label { font-weight: 600; color: var(--text-muted); }
+        .filter-group, .sort-group, .search-group { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+        .filter-group label, .sort-group label, .search-group label { font-weight: 600; color: var(--text-muted); }
         .filter-btn, .sort-btn { background: var(--surface-elevated); border: 1px solid var(--border-dim); padding: 0.4rem 1rem; border-radius: 40px; font-weight: 500; cursor: pointer; transition: all 0.2s; color: var(--text-light); }
         .filter-btn.active, .sort-btn.active { background: var(--primary-blue); border-color: var(--primary-blue); color: white; }
         .filter-btn:hover, .sort-btn:hover { background: var(--primary-dark); border-color: var(--accent-yellow); }
-        .date-picker { background: var(--surface-elevated); border: 1px solid var(--border-dim); padding: 0.4rem 0.8rem; border-radius: 40px; color: var(--text-light); font-family: inherit; }
+        .date-picker, .tag-search { background: var(--surface-elevated); border: 1px solid var(--border-dim); padding: 0.4rem 0.8rem; border-radius: 40px; color: var(--text-light); font-family: inherit; }
         .activities-log { display: flex; flex-direction: column; gap: 1.5rem; margin: 1rem 0 2rem; }
         .log-card { background: var(--surface-dark); border-radius: var(--card-radius); border: 1px solid var(--border-dim); overflow: hidden; transition: all 0.2s ease; }
         .log-card:hover { border-color: var(--accent-yellow); transform: translateY(-2px); }
@@ -90,6 +90,7 @@
                 <a href="about.html">About</a>
                 <a href="activities.html" class="active">Activities</a>
                 <a href="projects.html">Projects</a>
+                <a href="modules.html">Modules</a>
             </div>
         </nav>
     </div>
@@ -107,6 +108,10 @@
             <button id="applyCustomDate" class="filter-btn">Pilih Tanggal</button>
             <button id="resetFilter" class="filter-btn">Reset</button>
         </div>
+        <div class="search-group">
+            <label><i class="fas fa-tag"></i> Cari Tag:</label>
+            <input type="text" id="tagSearchInput" class="tag-search" placeholder="contoh: Linux, Cisco, Mikrotik">
+        </div>
         <div class="sort-group">
             <label><i class="fas fa-sort"></i> Urut:</label>
             <button id="sortNewest" class="sort-btn active">Terbaru ↓</button>
@@ -117,7 +122,7 @@
     <div id="loadMoreContainer" class="load-more-container"></div>
 </main>
 
-<footer><div class="container"><p>© 2025 Maulana Rizki Ramahan — catatan harian magang</p></div></footer>
+<footer><div class="container"><p>© 2025 Maulana Rizki Ramadhan — catatan harian magang</p></div></footer>
 
 <div id="lightbox" class="lightbox">
     <span class="close-lightbox">&times;</span>
