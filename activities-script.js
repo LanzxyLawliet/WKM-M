@@ -59,6 +59,46 @@
 
 const allActivities = [
     {
+        id: 16,
+        date: "2026-04-16",
+        title: "Membuat dan menambahkan module pada website",
+        shortDesc: "Membuat module baru pada website untuk menampilkan aktivitas, serta menambahkan fitur filter berdasarkan tag.",
+        descriptionMd: `
+## Membuat module baru pada website untuk menampilkan aktivitas, serta menambahkan fitur filter berdasarkan tag.
+menambahkan fitur filter berdasarkan tag pada website, sehingga dapat memfilter aktivitas berdasarkan tag yang diinginkan.
+        `,
+        imageUrls: ["pictures/2026-04-16-3.jpeg"],
+        tags: ["documentation", "Web Development", "Frontend"]
+    },
+    {
+        id: 15,
+        date: "2026-04-16",
+        title: "Membuat SSH pada debian server",
+        shortDesc: "Membuat SSH pada debian server untuk dapat diakses secara remote.",
+        descriptionMd: `
+## Membuat SSH 
+Mendownload openSSH-server untuk membuat SSH pada debian server, sehingga dapat diakses secara remote. 
+        `,
+        imageUrls: ["pictures/2026-04-16-2.jpeg"],
+        tags: ["SSH", "Debian", "Server"]
+    },
+    {
+        id: 14,
+        date: "2026-04-16",
+        title: "Mengulang kembali intersep jaringan Wifi",
+        shortDesc: "Menggunakan aircrack-ng pada mesin linux untuk melakukan intersep.",
+        descriptionMd: `
+## Melakukan intersep pada jaringan wifi menggunakan aircrack-ng pada mesin linux
+### Target
+-   42net
+-   fortunet
+## Hasil
+-   gagalmendaptkan pw
+        `,
+        imageUrls: ["pictures/2026-04-16-1.jpeg"],
+        tags: ["Aircrack-ng", "Wifi", "Linux"]
+    },
+    {
         id: 13,
         date: "2026-04-15",
         title: "Mengintersep jaringan Wifi",
