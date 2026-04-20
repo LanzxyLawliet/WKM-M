@@ -59,6 +59,60 @@
 
 const allActivities = [
     {
+        id: 20,
+        date: "2026-04-18",
+        title: "Menginstal DVWA dan OWASP Juice Shop",
+        shortDesc: "Menginstal DVWA dan OWASP Juice Shop untuk keperluan penetration testing.",
+        descriptionMd: `
+## Menginstal DVWA dan OWASP Juice Shop untuk dijadikan target dalam penetration testing
+- DVWA (Damn Vulnerable Web Application) adalah aplikasi web yang sengaja dibuat rentan untuk tujuan pembelajaran keamanan aplikasi web.
+- OWASP Juice Shop adalah aplikasi web yang juga sengaja dibuat rentan, namun dengan fokus pada berbagai jenis kerentanan yang lebih luas, termasuk yang ditemukan dalam aplikasi modern.
+
+Dengan menginstal kedua aplikasi ini, kita dapat melakukan berbagai jenis serangan dan eksploitasi untuk memahami bagaimana kerentanan bekerja dan bagaimana cara melindungi aplikasi web dari serangan tersebut.
+        `,
+        imageUrls: ["pictures/2026-04-18-1.jpeg"],
+        tags: ["Demonstration", "Penetration Testing", "Aircrack-ng", "Wifi"]
+    },
+    {
+        id: 19,
+        date: "2026-04-17",
+        title: "Melakukan Demo pada penggunaan Aircrack-ng",
+        shortDesc: "Melakukan Demonstrasi penggunaan Aircrack-ng.",
+        descriptionMd: `
+## Melakukan Demo pada penggunaan Aircrack-ng
+Melakukan demonstrasi penggunaan Aircrack-ng untuk memahami fitur dan penggunaannya dalam penetration testing kepada pak awan.
+        `,
+        imageUrls: ["pictures/2026-04-17-2.jpeg"],
+        tags: ["Demonstration", "Penetration Testing", "Aircrack-ng", "Wifi"]
+    },
+    {
+        id: 18,
+        date: "2026-04-17",
+        title: "Melakukan research tentang Burpsuite dan sqlmap",
+        shortDesc: "Melakukan research tentang Burpsuite dan sqlmap untuk memahami fitur dan penggunaannya dalam penetration testing.",
+        descriptionMd: `
+## Melakukan research tentang Burpsuite dan sqlmap untuk memahami fitur dan penggunaannya dalam penetration testing
+Menggunakan youtube sebagai sumber untuk melakukan research tentang Burpsuite dan sqlmap, sehingga dapat memahami fitur dan penggunaannya dalam penetration testing.
+        `,
+        imageUrls: ["pictures/2026-04-17-3.jpeg"],
+        tags: ["security", "Penetration Testing", "Documentation", "sqlmap", "burpsuite"]
+    },
+    {
+        id: 17,
+        date: "2026-04-17",
+        title: "Membuat wordlist sendiri",
+        shortDesc: "Membuat wordlist 8 digit numerik untuk keperluan penetration testing.",
+        descriptionMd: `
+## Membuat wordlist 8 digit numerik untuk keperluan penetration testing
+Wordlist ini dibuaat dengan menggunakan crunch dengan format -f /usr/share/crunch/charset.lst numeric 8 8 -o 8num.txt, sehingga menghasilkan wordlist dengan kombinasi angka dari 00000000 hingga 99999999.
+
+Wordlist ini dapat membobol password yang berdasarkan tanggal lahir yang terdiri dari 8 digit numerik, namun tidak efektif untuk password yang lebih kompleks. Oleh karena itu, wordlist ini dapat digunakan sebagai tambahan dalam serangan brute force untuk target yang memiliki password dengan pola tersebut.
+Sebelumnya membuat yang sama dengan mixalpa namun dibatalkan karena file terlalu besar.
+`,
+        imageUrls: ["pictures/2026-04-17-2.jpeg"],
+        tags: ["Penetration Testing", "Security"]
+    },
+    {
         id: 16,
         date: "2026-04-16",
         title: "Membuat dan menambahkan module pada website",
