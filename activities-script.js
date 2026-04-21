@@ -59,6 +59,31 @@
 
 const allActivities = [
     {
+        id: 22,
+        date: "2026-04-21",
+        title: "Mengerjakan LKS 2026 cisco",
+        shortDesc: "Mengerjakan LKS 2026 cisco.",
+        descriptionMd: `
+## Mengerjakan LKS 2026 cisco dengan menyambungkan 2 Lan dan vlan dalam Lan.
+Progress hanya baru sampai menyambungkan mls dan router jaksel, sekaligus beberapa vlan namun masih gagal dalam pinging end device yang berada pada jaringan yang sama.
+        `,
+        imageUrls: ["pictures/2026-04-21-1.jpeg", "pictures/2026-04-21-2.jpeg"],
+        tags: ["Demonstration", "Penetration Testing", "Aircrack-ng", "Wifi"]
+    },
+    {
+        id: 21,
+        date: "2026-04-20",
+        title: "Menginstal ulang OWASP Juice Shop",
+        shortDesc: "Menginstal ulang OWASP Juice Shop dan mempelajari dasar burpsuite.",
+        descriptionMd: `
+## Menginstal ulang OWASP Juice Shop untuk dijadikan target dalam penetration testing
+- Melakukan applicaton mapping dengan menggunakan burpsuite untuk memahami fitur dan penggunaannya dalam penetration testing OWASP Juice Shop.
+- Melakukan parameter tampering dengan menggunakan burpsuite paada tab halaman feedback dan beberapa bagian yang dapat dieksploitasi untuk memahami fitur dan penggunaannya dalam penetration testing OWASP Juice Shop.
+        `,
+        imageUrls: ["pictures/2026-04-20-1.jpeg"],
+        tags: ["Demonstration", "Penetration Testing", "Aircrack-ng", "Wifi"]
+    },
+    {
         id: 20,
         date: "2026-04-18",
         title: "Menginstal DVWA dan OWASP Juice Shop",
