@@ -59,7 +59,33 @@
 
 const allActivities = [
     {
-        id: 22,
+        id: 25,
+        date: "2026-04-24",
+        title: "Melakukan sql injection pada website OWASP Juice Shop",
+        shortDesc: "Melakukan sql injection website.",
+        descriptionMd: `
+## Melakukan sql injection pada website OWASP Juice Shop.
+Melakukan sql injection pada website OWASP Juice Shop untuk memahami fitur dan penggunaannya dalam penetration testing.
+Login sebagai admin dan user yang lain dan membuat catatan tentang cara eksekusi dan cara kerjanya.
+[Lihat Modul](modules/OWASP-JS-Injection-1.html)
+        `,
+        imageUrls: ["pictures/2026-04-24-1.jpeg", "pictures/2026-04-24-2.jpeg"],
+        tags: ["SQL Injection", "Penetration Testing"]
+    },
+    {
+        id: 24,
+        date: "2026-04-23",
+        title: "Melakukan csrf pada DVWA",
+        shortDesc: "Melakukan csrf DVWA.",
+        descriptionMd: `
+## Melakukan csrf agar untuk supaya dapat merubah sandi target hanya dengan link di tingkat secure low pada DVWA,
+Melakukan csrf agar untuk supaaya dapat merubah sandi target hanya dengan link di tingkat secure low pada DVWA, sehingga ketika target mengklik link tersebut, passwordnya akan berubah menjadi password yang sudah ditentukan sebelumnya.
+        `,
+        imageUrls: ["pictures/2026-04-23-1.jpeg"],
+        tags: ["CSRF", "Penetration Testing", "DVWA", "Web"]
+    },
+    {
+        id: 23,
         date: "2026-04-22",
         title: "Menggunakan intruder pada burpsuite untuk melakukan bruteforce pada",
         shortDesc: "Melakukan bruteforce website.",
@@ -68,8 +94,8 @@ const allActivities = [
 Memasuki halaman login bruteforce pada website dvwa dan menggunakan intruder pada burpsuite untuk melakukan bruteforce dengan menggunakan wordlist rockyou.txt untuk memahami fitur dan penggunaannya dalam pentest dvwa.
 Menyelesaikan bruteforce level easy dan medium, Juga sekaligus mempelajari hydra namun belum dipraktekan.
         `,
-        imageUrls: ["pictures/2026-04-21-1.jpeg", "pictures/2026-04-21-2.jpeg"],
-        tags: ["Demonstration", "Penetration Testing", "Aircrack-ng", "Wifi"]
+        imageUrls: ["pictures/2026-04-22-1.jpeg"],
+        tags: ["Web", "pentest", "burpsuite", "DVWA", "Bruteforce"]
     },
     {
         id: 22,

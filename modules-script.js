@@ -1,7 +1,7 @@
 // modules-script.js
 const allModules = [
     {
-        id: 1,
+        id: 4,
         title: "Pengujian Penetrasi Jaringan (Methodology)",
         meta: "Minggu 1-2 | 10 jam praktik",
         description: "Mempelajari tahapan ethical hacking: reconnaissance, scanning, exploitation, post-exploitation, dan reporting.",
@@ -9,7 +9,7 @@ const allModules = [
         link: "modules/module-1.html"
     },
     {
-        id: 2,
+        id: 3,
         title: "Metodologi Troubleshooting Jaringan",
         meta: "Minggu 3 | 8 jam praktik",
         description: "Pendekatan sistematis untuk mengidentifikasi dan memperbaiki masalah jaringan.",
@@ -17,7 +17,7 @@ const allModules = [
         link: "modules/module-2.html"
     },
     {
-        id: 3,
+        id: 2,
         title: "Pembuatan Modul Pembelajaran (Template)",
         meta: "Minggu 4 | 5 jam",
         description: "Cara menyusun modul praktikum yang terstruktur dengan studi kasus.",
@@ -25,12 +25,12 @@ const allModules = [
         link: "modules/module-3.html"
     },
     {
-        id: 4,
-        title: "Analisis Forensik Digital",
-        meta: "Minggu 5 | 12 jam",
-        description: "Metodologi pengumpulan dan analisis bukti digital dari sistem yang terkompromi.",
-        tags: ["Forensic", "Security", "Linux"],
-        link: "modules/module-4.html"
+        id: 1,
+        title: "OWASP Juice Shop Injection Login Page",
+        meta: "24/04/2026 | ~3 jam",
+        description: "Mempelajari cara melakukan SQL injection pada halaman login OWASP Juice Shop dan membuat catatan tentang cara eksekusi dan cara kerjanya.",
+        tags: ["Security", "Penetration Testing", "OWASP", "SQL Injection"],
+        link: "modules/OWASP-JS-Injection-1.html"
     }
 ];
 
