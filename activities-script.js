@@ -59,6 +59,71 @@
 
 const allActivities = [
     {
+        id: 30,
+        date: "2026-04-30",
+        title: "Piket",
+        shortDesc: "Piket.",
+        descriptionMd: `
+# Piket
+        `,
+        imageUrls: [],
+        tags: ["Piket"]
+    },
+    {
+        id: 29,
+        date: "2026-04-29",
+        title: "LKS2026-MA",
+        shortDesc: " Planning LKS2026-MA. ",
+        descriptionMd: `
+# LKS2026-MA
+        `,
+        imageUrls: [],
+        tags: ["Piket"]
+    },
+    {
+        id: 28,
+        date: "2026-04-28",
+        title: "Melanjutkan membuat tugas topologi kemarin",
+        shortDesc: "Topologi linux server.",
+        descriptionMd: `
+## Membuat 2 server linux dengan masing-masing server memiliki fungsi yang berbeda dan terhubung melalui switch.
+Server1 dan 2 dapat diakses melalui client windows, dns berjalan dapat dilihat dari URL webmail pada browser, ftp dapat diakses melalui cmd dan filezilla, webmail dapat saling, ssh dapat diakses. Sedikit kendala pada mysql namun berhasil ditangani, word tutorial sudah ada namun perlu sedikit modifikasi.
+
+        `,
+        imageUrls: ["pictures/2026-04-24-1.jpeg", "pictures/2026-04-24-2.jpeg"],
+        tags: ["VirtualBox", "Linux", "Networking", "Server", "DNS", "Web Hosting", "SSH", "Email", "FTP"]
+    },
+    {
+        id: 27,
+        date: "2026-04-27",
+        title: "Melanjutkan membuat tugas topologi kemarin",
+        shortDesc: "Topologi linux server.",
+        descriptionMd: `
+## Membuat 2 server linux dengan masing-masing server memiliki fungsi yang berbeda dan terhubung melalui switch.
+Terdapat sedikit kendala pada dovecot namun berhasil ditangani. berhasil mengakses ftp server namun gagal saat menginstal filezilla untuk aksess ftp lebih mudah. 
+
+Belum membuat modul.
+
+        `,
+        imageUrls: ["pictures/2026-04-24-1.jpeg", "pictures/2026-04-24-2.jpeg"],
+        tags: ["VirtualBox", "Linux", "Networking", "Server", "DNS", "Web Hosting", "SSH", "Email", "FTP"]
+    },
+    {
+        id: 26,
+        date: "2026-04-25",
+        title: "Mengerjakan tugas membuat topologi 2 server 1 switch dan 1 client dengan virtualbox",
+        shortDesc: "Topologi linux server.",
+        descriptionMd: `
+## Mengerjakan tugas membuat topologi 2 server 1 switch dan 1 client dengan virtualbox
+This topology simulates a small, self‑contained office network lab where three machines—two Debian 13 “Trixie” servers and one Windows client—communicate over an isolated internal segment. 
+The objective is to build from scratch a fully functional mini infrastructure that provides DNS resolution, web hosting, SSH remote access, email delivery (SMTP + IMAP + webmail), and FTP file sharing, all under the custom domain lana.lawliet (named after the administrator, Lana).
+
+Still in progress, but the goal is to have a complete setup as planned.
+`,
+        imageUrls: ["pictures/2026-04-24-1.jpeg", "pictures/2026-04-24-2.jpeg"],
+        tags: ["VirtualBox", "Linux", "Networking", "Server", "DNS", "Web Hosting", "SSH", "Email", "FTP"]
+    },
+    {
         id: 25,
         date: "2026-04-24",
         title: "Melakukan sql injection pada website OWASP Juice Shop",
