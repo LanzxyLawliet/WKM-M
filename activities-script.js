@@ -59,6 +59,32 @@
 
 const allActivities = [
     {
+        id: 32,
+        date: "2026-05-03",
+        title: "LKS2026-MA",
+        shortDesc: " Planning LKS2026-MA. ",
+        descriptionMd: `
+# LKS2026-MA
+        `,
+        imageUrls: [],
+        tags: ["Piket"]
+    },
+    {
+        id: 31,
+        date: "2026-05-02",
+        title: "Melanjutkan Pengerjaan LKS2026-MA",
+        shortDesc: "Creating all 6 VM and configuring network.",
+        descriptionMd: `
+# Connecting 6 VMs with VirtualBox
+
+Forwarding IP from fw to other VM so that all VM can connect with each other.
+
+The networking idea is for every VM in this LKS-MA connect to host os for easier configuration and troubleshooting.
+`,
+        imageUrls: [],
+        tags: ["Piket"]
+    },
+    {
         id: 30,
         date: "2026-04-30",
         title: "Piket",
