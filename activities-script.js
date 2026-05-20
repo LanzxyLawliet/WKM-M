@@ -59,15 +59,166 @@
 
 const allActivities = [
     {
+        id: 43,
+        date: "2026-05-20",
+        title: "Update Website Kegiatan Magang",
+        shortDesc: "Mengupdate website kegiatan magang dengan menambahkan beberapa aktivitas terbaru.",
+        descriptionMd: `
+# Mengupdate website kegiatan magang dengan menambahkan beberapa aktivitas terbaru.`,
+        imageUrls: ["pictures/2026-05-20-1.jpeg"],
+        tags: ["LKS2025-MA","Web Server", "Apache2", "OpenVPN", "Configuration"]
+    },
+    {
+        id: 42,
+        date: "2026-05-18",
+        title: "Memberikan paparan mengenai cybersecurity keamanan wpa/wpa2 dan live demonstration intersep wifi dengan aircrack-ng",
+        shortDesc: "Paparan di IT camp bogor dari sekolah Wisata Indonesia",
+        descriptionMd: `
+# Memberikan paparan mengenai cybersecurity keamanan wpa/wpa2 dan live demonstration intersep wifi dengan aircrack-ng
+
+Menjelaskan tentang keamanan wifi dengan wpa/wpa2 dan melakukan demonstrasi intersep wifi dengan menggunakan aircrack-ng untuk memberikan pemahaman tentang keamanan wifi kepada peserta IT camp bogor dari sekolah Wisata Indonesia.
+
+Menyampaikan secara tidak langsung mengenai pentingnya keamanan password wifi dan bagaimana cara melindungi jaringan wifi dari serangan yang mungkin terjadi, serta memberikan pemahaman tentang bagaimana serangan intersep wifi dapat dilakukan dengan menggunakan aircrack-ng.
+`,
+        imageUrls: [],
+        tags: ["LKS2025-MA","Web Server", "Apache2", "OpenVPN", "Configuration"]
+    },
+    {
+        id: 41,
+        date: "2026-05-15",
+        title: "Menginstal dan menkofigurasikan Webserver dengan apache2 dan Openvpn",
+        shortDesc: "Memulai konfigurasi web server dengan apache2 dan openvpn untuk modul LKS2025-MA.",
+        descriptionMd: `
+# Menginstal dan menkofigurasikan Webserver dengan apache2 dan Openvpn
+
+Memulai konfigurasi web server dengan apache2 dan openvpn untuk modul LKS2025-MA, dengan mengikuti langkah-langkah yang terdapat pada modul tersebut, sehingga web server dapat berjalan dengan baik dan dapat diakses melalui jaringan.
+`,
+        imageUrls: [],
+        tags: ["LKS2025-MA","Web Server", "Apache2", "OpenVPN", "Configuration"]
+    },
+    {
+        id: 40,
+        date: "2026-05-14",
+        title: "Menyelesaikan masalah konfigurasi mail server dengan dovecot dan postfix",
+        shortDesc: "Menginstal roundcube dan kini mail server sudah dapat mengirim dan menerima email dengan roundcube sebagai webmail.",
+        descriptionMd: `
+# Menyelesaikan masalah konfigurasi mail server dengan dovecot dan postfix
+Setelah menginstal roundcube sebagai webmail, mail server sudah dapat mengirim dan menerima email dengan roundcube sebagai webmail.
+`,
+        imageUrls: [],
+        tags: ["LKS2025-MA","Mail Server", "Dovecot", "Postfix", "Troubleshoot"]
+    },
+    {
+        id: 39,
+        date: "2026-05-13",
+        title: "Mengajar dan mengawasi siswa sandikta dalam melakukan konfigurasi web server dan dengan dns server",
+        shortDesc: "Mengajar dan mengawasi praktik konfigurasi web server dan dns server.",
+        descriptionMd: `
+# Mengajar dan mengawasi siswa sandikta dalam melakukan konfigurasi web server dan dengan dns server
+
+Mengajar dan mengawasi siswa sandikta dalam melakukan konfigurasi web server dan dengan dns server, dengan memberikan penjelasan tentang konsep dasar web server dan dns server module yang diberikan pak awan sebagai base.
+`,
+        imageUrls: [],
+        tags: ["Teaching", "Teamwork", "Linux", "Server"]
+    },
+    {
+        id: 38,
+        date: "2026-05-12",
+        title: "Menginstal dan mengkonfigurasikan dovecot dan juga postfix sesuai dengan modul lks2025-ma",
+        shortDesc: "konfigurasi mail server dengan dovecot dan postfix.",
+        descriptionMd: `
+# Menginstal dan mengkonfigurasikan dovecot dan juga postfix sesuai dengan modul lks2025-ma
+
+Terjadi kendala dikarenakan kesalahan command konfigurasi yang menggunakan dovecot 2.3 sedangkan server menjalankan dovecot 2.4 namun dovecot status sudah aktif. 
+Kendala sama terjadi pada postfix. 
+
+Dengan menggunakan swaks, email sudah dapat dikirim tetapi belum terbaca di inbox.
+`,
+        imageUrls: ["pictures/2026-05-12-1.jpeg", "pictures/2026-05-12-2.jpeg"],
+        tags: ["LKS2025-MA","Mail Server", "Dovecot", "Postfix", "Troubleshoot"]
+    },
+    {
+        id: 37,
+        date: "2026-05-11",
+        title: "Melanjutkan konfigurasi mail server dengan dovecot dan postfix",
+        shortDesc: "Melanjutkan konfigurasi LKS2025-MA module mail server dengan dovecot dan postfix.",
+        descriptionMd: `
+# Melanjutkan konfigurasi mail server dengan dovecot dan postfix
+Melanjutkan konfigurasi LKS2025-MA module mail server dengan dovecot dan postfix, dengan mencoba untuk menyelesaikan masalah yang terjadi pada saat konfigurasi, sehingga mail server dapat berjalan dengan baik.
+`,
+        imageUrls: [],
+        tags: ["LKS2025-MA","Mail Server", "Dovecot", "Postfix", "Troubleshoot  "]
+    },
+    {
+        id: 36,
+        date: "2026-05-09",
+        title: "Melakukan paparan tentang list materi linux yang diberikan",
+        shortDesc: "Tugas pemaparan tentang list materi untuk di presentasikan kepada pak awan.",
+        descriptionMd: `
+# Melakukan paparan tentang list materi linux yang diberikan
+List materi linux yang diberikan untuk dipelajari dan dipresentasikan kepada pak awan, dengan materi sebagai berikut:
+1. linux debian 8 atau 12 silahkan bebas
+2. samba server 
+3. ftp server
+4. dhcp server 
+5. dns server 
+6. mail server 
+7. webmail server 
+8. ssh server 
+9. web server 
+`,
+        imageUrls: [],
+        tags: ["Presentation", "Linux", "Documentation", "Tugas"]
+    },
+    {
+        id: 35,
+        date: "2026-05-06",
+        title: "Menemani Pak Awan mengajar di sandikta",
+        shortDesc: "Menjadi asisten dalam mengajari",
+        descriptionMd: `
+# Membantu Pak Awan mengajar di sandikta
+Menjadi asisten dalam pematerian tentang server linux dan juga membantu murid pada saat praktek mebuat server.
+`,
+        imageUrls: [],
+        tags: ["Teaching", "Teamwork", "Linux", "Server"]
+    },
+    {
+        id: 34,
+        date: "2026-05-06",
+        title: "Menyelesaikan masalah install secara manual",
+        shortDesc: "Menyelesaikan masalah dengan manual tiap vm start",
+        descriptionMd: `
+# Terjadi error pada saat menginstall tools.
+Tidak dapat menginstall tools karena NAT yang sudah tidak diperlukan mengover write routing ke FW server yang sekaligus bertindak menjadi router untuk akses  sinyal terputus dan server tidak dapat menginstall tools yang diperlukan.
+`,
+        imageUrls: [],
+        tags: ["LKS2025-MA, VM, Troubleshoot, Debian"]
+    },
+    {
+        id: 33,
+        date: "2026-05-05",
+        title: "Terjadi error pada saat menginstall tools.",
+        shortDesc: "trouble shouting masalah tidak bisa menginstall tools",
+        descriptionMd: `
+# Terjadi error pada saat menginstall tools.
+Tidak dapat menginstall tools karena NAT yang sudah tidak diperlukan mengover write routing ke FW server yang sekaligus bertindak menjadi router untuk akses  sinyal terputus dan server tidak dapat menginstall tools yang diperlukan.
+`,
+        imageUrls: [],
+        tags: ["LKS2025-MA, VM, Troubleshoot, Debian"]
+    },
+    {
         id: 32,
         date: "2026-05-03",
-        title: "LKS2026-MA",
-        shortDesc: " Planning LKS2026-MA. ",
+        title: "Giving certificates to each server in LKS2025-MA",
+        shortDesc: "And also making each could ssh to main os.",
         descriptionMd: `
-# LKS2026-MA
-        `,
+# Giving certificates to each server in LKS2025-MA
+Giving certificates key managementto each server in LKS2025-MA and also making each could ssh to main os, so that it can be accessed from the main os and easier to manage.
+
+But the key management is still in progress, so the ssh access is not yet fully functional, but the certificates have been generated and distributed to some server.
+`,
         imageUrls: [],
-        tags: ["Piket"]
+        tags: ["LKS2025-MA, VM, VirtualBox, CA"]
     },
     {
         id: 31,
@@ -82,7 +233,7 @@ Forwarding IP from fw to other VM so that all VM can connect with each other.
 The networking idea is for every VM in this LKS-MA connect to host os for easier configuration and troubleshooting.
 `,
         imageUrls: [],
-        tags: ["Piket"]
+        tags: ["LKS2025-MA"]
     },
     {
         id: 30,
@@ -98,13 +249,14 @@ The networking idea is for every VM in this LKS-MA connect to host os for easier
     {
         id: 29,
         date: "2026-04-29",
-        title: "LKS2026-MA",
-        shortDesc: " Planning LKS2026-MA. ",
+        title: "LKS2025-MA",
+        shortDesc: "Planning LKS2025-MA.",
         descriptionMd: `
-# LKS2026-MA
+# LKS2025-MA
+Melakukan planning pada Module A dari LKS 2025 untuk kemudian dijadikan persiapan untuk lks2026 mendatang
         `,
         imageUrls: [],
-        tags: ["Piket"]
+        tags: ["Planning", "LKS2025-MA"]
     },
     {
         id: 28,
@@ -116,7 +268,7 @@ The networking idea is for every VM in this LKS-MA connect to host os for easier
 Server1 dan 2 dapat diakses melalui client windows, dns berjalan dapat dilihat dari URL webmail pada browser, ftp dapat diakses melalui cmd dan filezilla, webmail dapat saling, ssh dapat diakses. Sedikit kendala pada mysql namun berhasil ditangani, word tutorial sudah ada namun perlu sedikit modifikasi.
 
         `,
-        imageUrls: ["pictures/2026-04-24-1.jpeg", "pictures/2026-04-24-2.jpeg"],
+        imageUrls: ["pictures/2026-04-28-1.jpeg", "pictures/2026-04-28-2.jpeg","pictures/2026-04-28-3.jpeg", "pictures/2026-04-28-4.jpeg"],
         tags: ["VirtualBox", "Linux", "Networking", "Server", "DNS", "Web Hosting", "SSH", "Email", "FTP"]
     },
     {
@@ -131,7 +283,7 @@ Terdapat sedikit kendala pada dovecot namun berhasil ditangani. berhasil mengaks
 Belum membuat modul.
 
         `,
-        imageUrls: ["pictures/2026-04-24-1.jpeg", "pictures/2026-04-24-2.jpeg"],
+        imageUrls: ["pictures/2026-04-27-1.jpeg", "pictures/2026-04-27-2.jpeg"],
         tags: ["VirtualBox", "Linux", "Networking", "Server", "DNS", "Web Hosting", "SSH", "Email", "FTP"]
     },
     {
