@@ -59,6 +59,56 @@
 
 const allActivities = [
     {
+        id: 45,
+        date: "2026-05-22",
+        title: "membantu anak sandikta membuat website hingga online",
+        shortDesc: "Tugas dari pak awan",
+        descriptionMd: `
+## Membantu mengajari anak sandikta membuat website hingga online
+Untuk kesesuaian website siswa akan mengurus nya sendiri sesuai dengan objektif yang diminta.
+        `,        
+        imageUrls: [],
+        tags: ["Mentoring", "Teaching", "Web Development", "Teamwork", "Tugas-pak-awan"]
+    },
+    {
+        id: 44,
+        date: "2026-05-22",
+        title: "Mengerjakan tugas video langkah-langkah konfigurasi dari pak deni",
+        shortDesc: "Tugas sekolah",
+        descriptionMd: `
+# Mengerjakan tugas video langkah-langkah konfigurasi dari pak deni
+
+## Membuat video langkah-langkah untuk mengerjakan tugas berikut
+
+Buatkan langkash langkah secara lengkap dan detil.
+
+1. Konfigurasi Remote server
+2. Konfigurasi DHCP Server
+3. Konfigurasi DNS Server
+4. Konfigurasi FTP Server
+5. Konfigurasi Database Server
+
+Ketentuan
+
+- Tulis dibuku, cantumkan di pojok atas (NAMA, KELAS & TANGGAL)
+
+- Hasil / Tugas di rekam dan video dikirimkan ke whatsapp bapak 
+  (Rekam detil mulai dari nama kemudian tugasnya)
+
+- Batas akhir TUGAS sampai dengan tanggal 22 Mei 2026
+
+Nama	:  Maulana Rizki Ramadhan
+Kelas	:  XI TJKT I 
+Tanggal	:  14/05/2026
+
+---------------------------------------------------
+
+
+`,
+        imageUrls: [],
+        tags: ["Documentation","tugas-sekolah", "Configuration"]
+    },
+    {
         id: 43,
         date: "2026-05-20",
         title: "Update Website Kegiatan Magang",
@@ -80,7 +130,7 @@ Menjelaskan tentang keamanan wifi dengan wpa/wpa2 dan melakukan demonstrasi inte
 
 Menyampaikan secara tidak langsung mengenai pentingnya keamanan password wifi dan bagaimana cara melindungi jaringan wifi dari serangan yang mungkin terjadi, serta memberikan pemahaman tentang bagaimana serangan intersep wifi dapat dilakukan dengan menggunakan aircrack-ng.
 `,
-        imageUrls: [],
+        imageUrls: ["pictures/2026-05-18-1.jpeg"],
         tags: ["LKS2025-MA","Web Server", "Apache2", "OpenVPN", "Configuration"]
     },
     {
@@ -242,6 +292,7 @@ The networking idea is for every VM in this LKS-MA connect to host os for easier
         shortDesc: "Piket.",
         descriptionMd: `
 # Piket
+dan mulai dari nekstime hari piket yang tidak memiliki pembelajaran yang spesifik jurusan tidak akan dimasukkan kesini.
         `,
         imageUrls: [],
         tags: ["Piket"]
