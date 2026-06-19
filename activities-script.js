@@ -59,6 +59,58 @@
 
 const allActivities = [
     {
+        id: 48,
+        date: "2026-05-30",
+        title: "Selesai membuat paparan materi yang harus dikuasai jurusan TKJ dari berbagai tingkatan kelas",
+        shortDesc: "Membuat paparan materi.",
+        descriptionMd: `
+# Membuat paparan materi untuk persiapan dunia kerja untuk jurusan TKJ dari kelas X-XII
+membuat paparan materi yang harus dikuasai jurusan TKJ dari berbagai tingkatan kelas, sehingga dapat menjadi referensi untuk persiapan dunia kerja bagi siswa TKJ.
+
+### Membuat ppt materi siap dunia kerja kelas X-XII
+
+keterangan: Terlanjur bikin tiga-tiganya. 
+
+https://canva.link/pnpo40ppvekl9js
+kelas X
+
+https://canva.link/a990n8suqh1op31
+kelas XI
+
+https://canva.link/td9k7596tx3vcm9
+kelas XII
+        `,        
+        imageUrls: ["https://images.unsplash.com/photo-1628519592419-bf288f08cef5?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
+        tags: ["Materi", "Documentation", "Education"]
+    },
+    {
+        id: 47,
+        date: "2026-05-29",
+        title: "Membuat paparan materi yang harus dikuasai jurusan TKJ dari berbagai tingkatan kelas",
+        shortDesc: "Membuat paparan materi.",
+        descriptionMd: `
+# Membuat paparan materi untuk persiapan dunia kerja untuk jurusan TKJ dari kelas X-XII
+membuat paparan materi yang harus dikuasai jurusan TKJ dari berbagai tingkatan kelas, sehingga dapat menjadi referensi untuk persiapan dunia kerja bagi siswa TKJ.
+
+Tiap tingkatan memiliki halnya tersendiri yang harus dikuasai dan tak hanya serta merta menguasai satu hal.
+        `,        
+        imageUrls: ["pictures/2026-05-29-1.jpeg", "pictures/2026-05-29-2.jpeg", "pictures/2026-05-29-3.jpeg", "pictures/2026-05-29-4.jpeg", "pictures/2026-05-29-5.jpeg", "pictures/2026-05-29-6.jpeg", "pictures/2026-05-29-7.jpeg", "pictures/2026-05-29-8.jpeg", "pictures/2026-05-29-9.jpeg", "pictures/2026-05-29-10.jpeg", "pictures/2026-05-29-11.jpeg", "pictures/2026-05-29-12.jpeg"],
+        tags: ["Materi", "Documentation", "Education"]
+    },
+    {
+        id: 46,
+        date: "2026-05-26",
+        title: "menginstal OpenVPN dan konfigurasi certificate",
+        shortDesc: "Melanjutkan LKS2025-MA dengan menginstal OpenVPN dan konfigurasi certificate untuk setiap server.",
+        descriptionMd: `
+# Menginstal OpenVPN dan Konfigurasi Certificate
+Terdapat kendala pada konetivitas fw server dengan host os yang membuat proses instalasi melambat
+Namun masalah telah berhasil diselesaikan dan konfigurasi dapat kembali dilanjutkan dengnan mudah dan tak terkendala
+        `,        
+        imageUrls: ["https://images.unsplash.com/photo-1516298252535-cf2ac5147f9b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
+        tags: ["Tugas-pak-awan", "LKS2025-MA", "OpenVPN", "Certificate", "Configuration"]
+    },
+    {
         id: 45,
         date: "2026-05-22",
         title: "membantu anak sandikta membuat website hingga online",
