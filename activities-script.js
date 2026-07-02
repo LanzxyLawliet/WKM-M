@@ -59,17 +59,124 @@
 
 const allActivities = [
     {
+        id: 54,
+        date: "2026-06-18",
+        title: "Mengerjakan tugas Mikrotik uprak kelas XII sandikta",
+        shortDesc: "Mengerjakan tugas Mikrotik uprak kelas XII sandikta",
+        descriptionMd: `
+# Mengerjakan tugas ulangan praktek Mikrotik kelas XII sandikta
+
+Memulai pengerjaan tugas Mikrotik dengan berdasarkan topologi yang diberikan dan tugas tugas ada di lembar tugas yang diberikan.
+
+Dikarenakan keterbasan port pada laptop saya, maka diguanakanlah virtualbox dengan 2 vm dan 1 client vm untuk dapat mengerjakan tugas ini.
+Meskiipun demikian pengaturan konfigurasi pada Mikkrotik ini tetap saya mengguankan winbox dari host os.
+
+\`\`\`     
+
+M   M III K   K RRRR   OOO  TTTTT III K   K 
+MM MM  I  K  K  R   R O   O   T    I  K  K  
+M M M  I  KKK   RRRR  O   O   T    I  KKK   
+M   M  I  K  K  R  R  O   O   T    I  K  K  
+M   M III K   K R   R  OOO    T   III K   K 
+                                                                                
+\`\`\`
+
+lembar tugas dapat dilihat dari galeri gambar yang terkait dengan aktivitas ini.
+        `,        
+        imageUrls: ["pictures/UPM.jpeg"],
+        tags: ["Mikrotik", "VirtualBox", "Networking", "Tugas", "Sandikta", "Kelas XII"]
+    },
+    {
+        id: 53,
+        date: "2026-06-17",
+        title: "Menyelesaikan tugas cisco packet tracer dengan tambahan membuat modul tutorial",
+        shortDesc: "Menyelesaikan tugas cisco PT",
+        descriptionMd: `
+# Menyelesaikan tugas cisco PT + **Modul Tutorial**
+Telah menyelesaikan tugas cisco packet tracer yang diberikan, beserta tugas dan doukmentasi berupa foto dapat dilihat pada galeri gambar yang terkait dengan aktivitas ini.
+
+Serta membuat modul tutorial yang berisi langkah-langkah konfigurasi cisco packet tracer yang diberikan, sehingga dapat menjadi referensi bagi siswa yang ingin belajar cisco packet tracer.
+Akses terhadap modul ada di tab Modules "UPRAK TKJ XII Sandikta 2026" dan dapat diakses melalui link dibawah ini:
+
+(COMING SOON!)
+        `,        
+        imageUrls: ["pictures/2026-06-17-1.jpeg", "pictures/2026-06-17-2.jpeg", "pictures/2026-06-17-3.jpeg", "pictures/2026-06-17-4.jpeg"],
+        tags: ["Cisco", "Packet Tracer", "Networking", "Tugas", "Sandikta", "Kelas XII"]
+    },
+    {
+        id: 52,
+        date: "2026-06-16",
+        title: "Mengerjakan tugas cisco packet tracer yang ditugaskan untuk diselesaikan.",
+        shortDesc: "Mengerjakan tugas cisco packet tracer yang ditugaskan untuk diselesaikan.",
+        descriptionMd: `
+# Mengerjakan tugas ulangan praktek packet tracer kelas XII sandikta
+
+Memulai pengerjaan tugas cisco PT dengan berdasarkan topologi yang diberikan dan tugas tugas ada di lembar tugas yang diberikan.
+
+\`\`\`     
+
+▄█████ ▄▄  ▄▄▄▄  ▄▄▄▄  ▄▄▄  █████▄ ██████ 
+██     ██ ███▄▄ ██▀▀▀ ██▀██ ██▄▄█▀   ██   
+▀█████ ██ ▄▄██▀ ▀████ ▀███▀ ██       ██                                       
+\`\`\`
+
+lembar tugas dapat dilihat dari galeri gambar yang terkait dengan aktivitas ini.
+        `,        
+        imageUrls: ["pictures/UPPT.jpeg"],
+        tags: ["Cisco", "Packet Tracer", "Networking", "Tugas", "Sandikta", "Kelas XII"]
+    },
+    {
+        id: 51,
+        date: "2026-06-13",
+        title: "Mengupdate website kegiatan magang dengan menambahkan beberapa aktivitas terbaru",
+        shortDesc: "Update website",
+        descriptionMd: `
+# Update Website Kegiatan Magang
+Melakukan update website kegiatan magang dengan menambahkan beberapa aktivitas terbaru, sehingga website dapat menampilkan informasi yang lebih lengkap dan up-to-date.
+        `,        
+        imageUrls: ["https://images.unsplash.com/photo-1763514354318-4dc78884b26c?q=80&w=1124&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
+        tags: ["Update", "Website"]
+    },
+    {
+        id: 50,
+        date: "2026-06-12",
+        title: "Menyelesaikan dan mempresentasikan hasil jadi dan modul ujian wistek kelas 10",
+        shortDesc: "Menyelesaikan dan mempresentasikan hasil jadi dan modul ujian wistek kelas 10",
+        descriptionMd: `
+# Menyelesaikan dan mempresentasikan hasil jadi server yang divirtualisasikan di virtualbox dan modul ujian wistek kelas 10
+Terdapat kendala pada konetivitas fw server dengan host os yang membuat proses instalasi melambat
+Namun masalah telah berhasil diselesaikan dan konfigurasi dapat kembali dilanjutkan dengnan mudah dan tak terkendala
+        `,        
+        imageUrls: ["https://images.unsplash.com/photo-1516298252535-cf2ac5147f9b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
+        tags: ["Exam", "Wistek", "Server", "Client", "Ubuntu Server", "Windows 10", "tugas pak awan"]
+    },
+    {
+        id: 49,
+        date: "2026-06-10",
+        title: "Membuat 1 server dengan 1 client dan modulnya untuk uji kompetensi siswa Wistek kelas X",
+        shortDesc: "Membuat server dan client.",
+        descriptionMd: `
+# Membuat 1 server dengan 1 client dan modulnya untuk uji kompetensi Wistek kelas X
+
+Server yang digunakan adalah ubuntu server dan client menggunakan windows 10, dengan konfigurasi yang sesuai dengan modul ujian praktik wistek kelas X berdasarkan lembar tugas yang telah ditetapkan.
+
+Tugas yang diberikan adalah hanya yang dasar seperti DHCP, DNS, FTP, Web Server, SSH, Mail Server, dan Webmail Server. Namun terdapat kendala pada saat menggunakan roundcube sehingga terpaksa harus menggunakan Squirrelmail sebagai webmail server.
+
+        `,        
+        imageUrls: ["https://images.unsplash.com/photo-1629187487730-e6f123f55c6b?q=80&w=1197&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
+        tags: ["Exam", "Wistek", "Server", "Client", "Ubuntu Server", "Windows 10", "tugas pak awan"]
+    },
+    {
         id: 48,
         date: "2026-05-30",
         title: "Selesai membuat paparan materi yang harus dikuasai jurusan TKJ dari berbagai tingkatan kelas",
         shortDesc: "Membuat paparan materi.",
         descriptionMd: `
 # Membuat paparan materi untuk persiapan dunia kerja untuk jurusan TKJ dari kelas X-XII
-membuat paparan materi yang harus dikuasai jurusan TKJ dari berbagai tingkatan kelas, sehingga dapat menjadi referensi untuk persiapan dunia kerja bagi siswa TKJ.
+membuat paparan materi yang harus dikuasai jurusan 
+TKJ dari berbagai tingkatan kelas, sehingga dapat menjadi referensi untuk persiapan dunia kerja bagi siswa TKJ.
 
-### Membuat ppt materi siap dunia kerja kelas X-XII
-
-keterangan: Terlanjur bikin tiga-tiganya. 
+### Membuat ppt materi siap dunia kerja kelas X-XII 
 
 https://canva.link/pnpo40ppvekl9js
 kelas X
