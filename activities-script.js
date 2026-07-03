@@ -59,8 +59,106 @@
 
 const allActivities = [
     {
-        id: 54,
-        date: "2026-06-18",
+        id: 62,
+        date: "2026-07-02",
+        title: "Menyelesaikan modul Mikrotik dan mikrotik router nya lagi",
+        shortDesc: "Menyelesaikan modul Mikrotik dari tugas yang diberikan",
+        descriptionMd: `
+# **Menyelesaikan** modul Mikrotik dari tugas yang diberikan
+
+Akhirnya menyelesaikan modul Mikrotik dari tugas yang diberikan, dengan membuat ulang router 1 danmenyelesaikan beberapa langkah konfigurasi yang belum selesai dan menambahkan beberapa langkah konfigurasi baru sesuai lembar tugas yang diberikan.
+
+Membuat modul tutorial yang berisi langkah-langkah konfigurasi Mikrotik dari tugas yang diberikan, sehingga dapat menjadi referensi bagi siswa yang ingin belajar konfigurasi Mikrotik.
+Akses terhadap modul ada di tab Modules "UPRAK TKJ MT XII Sandikta 2026" dan dapat diakses melalui link dibawah ini:
+
+(COMING SOON!)
+        `,        
+        imageUrls: ["https://images.unsplash.com/photo-1701568090026-22f6fb9549e5?q=80&w=1006&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
+        tags: ["Mikrotik", "Virtualbox", "Winbox", "Networking", "Tugas", "module", "Sandikta", "Kelas XII"]
+    },
+    {
+        id: 61,
+        date: "2026-07-01",
+        title: "Membuat ulang Router satu karena confignya terrestart sekaligus melanjutkan pengerjaan modul Mikrotik dari tugas yang diberikan",
+        shortDesc: "Mengerjakan modul Mikrotik dari tugas yang diberikan",
+        descriptionMd: `
+# Melanjutkan pengerjaan modul Mikrotik dari tugas yang diberikan
+
+Akhirnya melanjutkan pengerjaan modul Mikrotik dari tugas yang diberikan, dengan membuat ulang router 1 danmenyelesaikan beberapa konfigurasi yang belum selesai dan menambahkan beberapa konfigurasi baru sesuai lembar tugas yang diberikan.
+        `,        
+        imageUrls: ["https://images.unsplash.com/photo-1562141960-c9a127257324?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
+        tags: ["Mikrotik", "Virtualbox", "Winbox", "Networking", "Tugas", "module", "Sandikta", "Kelas XII"]
+    },
+    {
+        id: 60,
+        date: "2026-06-29",
+        title: "Membantu memindahkaan barang sisa gypsum dan baja ringan di ruko baru dan membersihkan ruko baru",
+        shortDesc: "Renovasi ruko baru",
+        descriptionMd: `
+# Membantu memindahkaan barang sisa gypsum dan baja ringan di ruko baru dan membersihkan ruko baru
+
+Membantu memindahkan barang sisa gypsum dan baja ringan di ruko baru dan membersihkan ruko baru agar siap digunakan.
+        `,        
+        imageUrls: ["https://images.unsplash.com/photo-1597935526289-3fb74b52e2ae?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
+        tags: ["Nguli", "rukobaru", "Bersih-bersih"]
+    },
+    {
+        id: 59,
+        date: "2026-06-27",
+        title: "Menyelesaikan tugas mikrotik di virtualbox",
+        shortDesc: "Menyelesaikan tugas Mikrotik",
+        descriptionMd: `
+# Menyelesaikan tugas Mikrotik UPRAK XII tkj sandikta 2026
+Telah menyelesaikan tugas mikrotik yang diberikan, beserta tugas dan bonus tugas yang ada.
+
+MOdul langkah-langkah unutk mikrotik masih dalam prosees pembuatan
+
+        `,        
+        imageUrls: ["https://images.unsplash.com/photo-1707002627408-46d25ce551a0?q=80&w=1290&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
+        tags: ["MIkrotik", "Virtualbox", "Winbox", "Networking", "Tugas", "Sandikta", "Kelas XII"]
+    },
+    {
+        id: 58,
+        date: "2026-06-25",
+        title: "Membersihkan dan mengangkat barang di Ruko baru",
+        shortDesc: "Renovasi ruko baru",
+        descriptionMd: `
+# Membantu mengangkat barang dan membersihkan ruko baru
+
+Setelah memasang vinyl di ruko baru, saya membantu mengangkat barang-barang yang ada di ruko baru seperti meja, alat-alat, gypsum, baja ringan dan membersihkan ruko baru agar siap digunakan.
+        `,        
+        imageUrls: ["https://images.unsplash.com/photo-1612071078206-bc912b559e3a?w=300&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGNoZXZ5fGVufDB8MHwwfHx8MA%3D%3D"],
+        tags: ["Nguli", "rukobaru", "Bersih-bersih"]
+    },
+    {
+        id: 57,
+        date: "2026-06-24",
+        title: "Masih membantu memasang vinyl di ruko baru",
+        shortDesc: "Renovasi ruko baru",
+        descriptionMd: `
+# Membantu memasang vinyl di ruko baru
+
+Masih sama seperti kemarin, dalam rangka renovasi ruko baru, saya membantu mengelem lantai dan meratakannya untuk kemudian dipasang vinyl
+        `,        
+        imageUrls: ["https://images.unsplash.com/photo-1615769516664-ca7302760b23?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
+        tags: ["Nguli", "rukobaru", "Vinyl"]
+    },
+    {
+        id: 56,
+        date: "2026-06-23",
+        title: "Bantu memasang vinyl di ruko baru",
+        shortDesc: "Renovasi ruko baru",
+        descriptionMd: `
+# Membantu memasang vinyl di ruko baru
+
+Dalam rangka renovasi ruko baru, saya membantu mengelem lantai dan meratakannya untuk kemudian dipasang vinyl
+        `,        
+        imageUrls: ["pictures/2026-06-23.jpeg"],
+        tags: ["Nguli", "rukobaru", "Vinyl"]
+    },
+    {
+        id: 55,
+        date: "2026-06-20",
         title: "Mengerjakan tugas Mikrotik uprak kelas XII sandikta",
         shortDesc: "Mengerjakan tugas Mikrotik uprak kelas XII sandikta",
         descriptionMd: `
@@ -87,6 +185,18 @@ lembar tugas dapat dilihat dari galeri gambar yang terkait dengan aktivitas ini.
         tags: ["Mikrotik", "VirtualBox", "Networking", "Tugas", "Sandikta", "Kelas XII"]
     },
     {
+        id: 54,
+        date: "2026-06-19",
+        title: "Mengupdate website kegiatan magang dengan menambahkan beberapa aktivitas terbaru",
+        shortDesc: "Update website",
+        descriptionMd: `
+# Update Website Kegiatan Magang
+Melakukan update website kegiatan magang dengan menambahkan beberapa aktivitas terbaru, sehingga website dapat menampilkan informasi yang lebih lengkap dan up-to-date.
+        `,        
+        imageUrls: ["https://images.unsplash.com/photo-1617814086906-d847a8bc6fca?q=80&w=1142&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
+        tags: ["Update", "Website"]
+    },
+    {
         id: 53,
         date: "2026-06-17",
         title: "Menyelesaikan tugas cisco packet tracer dengan tambahan membuat modul tutorial",
@@ -96,12 +206,12 @@ lembar tugas dapat dilihat dari galeri gambar yang terkait dengan aktivitas ini.
 Telah menyelesaikan tugas cisco packet tracer yang diberikan, beserta tugas dan doukmentasi berupa foto dapat dilihat pada galeri gambar yang terkait dengan aktivitas ini.
 
 Serta membuat modul tutorial yang berisi langkah-langkah konfigurasi cisco packet tracer yang diberikan, sehingga dapat menjadi referensi bagi siswa yang ingin belajar cisco packet tracer.
-Akses terhadap modul ada di tab Modules "UPRAK TKJ XII Sandikta 2026" dan dapat diakses melalui link dibawah ini:
+Akses terhadap modul ada di tab Modules "UPRAK TKJ PT XII Sandikta 2026" dan dapat diakses melalui link dibawah ini:
 
 (COMING SOON!)
         `,        
         imageUrls: ["pictures/2026-06-17-1.jpeg", "pictures/2026-06-17-2.jpeg", "pictures/2026-06-17-3.jpeg", "pictures/2026-06-17-4.jpeg"],
-        tags: ["Cisco", "Packet Tracer", "Networking", "Tugas", "Sandikta", "Kelas XII"]
+        tags: ["Cisco", "Packet Tracer", "Networking", "Module","Tugas", "Sandikta", "Kelas XII"]
     },
     {
         id: 52,
